@@ -353,6 +353,7 @@ function themeConfig($form)
   $cdn = new Typecho_Widget_Helper_Form_Element_Text('cdn', NULL, NULL, _t('使用自己的静态存储'), _t('输入静态存储链接(不需要带http/https)'));
   $APPID = new Typecho_Widget_Helper_Form_Element_Text('APPID', NULL, NULL, _t('APP ID'), _t('输入在Valine获取的APP ID'));
   $APPKEY = new Typecho_Widget_Helper_Form_Element_Text('APPKEY', NULL, NULL, _t('APP KEY'), _t('输入在Valine获取的APP KEY'));
+  $serverURLs = new Typecho_Widget_Helper_Form_Element_Text('serverURLs', NULL, NULL, _t('Valine安全域名'), _t('输入在Valine设置的安全域名'));
   $weibo = new Typecho_Widget_Helper_Form_Element_Text('weibo', NULL, '#', _t('微博地址'), _t('输入微博地址'));
   $beian = new Typecho_Widget_Helper_Form_Element_Text('beian', NULL, NULL, _t('ICP备案号'), _t(''));
   $Subtitle = new Typecho_Widget_Helper_Form_Element_Text('Subtitle', NULL, NULL, _t('站点副标题'), _t(''));
@@ -375,6 +376,7 @@ function themeConfig($form)
   $form->addInput($cdn);
   $form->addInput($APPID);
   $form->addInput($APPKEY);
+  $form->addInput($serverURLs);
   $form->addInput($alipay);
   $form->addInput($wpay);
   $form->addInput($github);

@@ -51,5 +51,25 @@ if (!empty($this->options->cdn) && $this->options->cdn) {
         src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.min.js"></script>
 <script type="text/javascript" src="<?php $this->options->themeUrl('assets/js/bundle.js'); ?>"></script>
+<script>
+  if (document.getElementById('vcomments') !== null) {
+    // eslint-disable-next-line no-undef
+    new Valine({
+      el: '#vcomments',
+      appId: '<?php $this->options->APPID()?>',
+      appKey: '<?php $this->options->APPKEY()?>',
+      serverURLs: '<?php $this->options->serverURLs()?>',
+      notify: true,
+      verify: true,
+      avatar: 'mm',
+      visitor: true,
+      highlight: true,
+      recordIP: true,
+      placeholder: '人生在世，错别字在所难免，无需纠正。',
+      path: window.location.pathname
+    });
+  }
+</script>
+<?php $this->footer(); ?>
 </body>
 </html>

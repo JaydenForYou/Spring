@@ -87,13 +87,3 @@
   </div>
 </main>
 <?php $this->need('footer.php'); ?>
-
-<?php if (!Utils::isEnabled('enableComments', 'JConfig')): ?>
-  <script>
-    new Valine({
-      el: '#vcomments',
-      appId: '<?php $this->options->APPID()?>',
-      appKey: '<?php $this->options->APPKEY()?>'
-    })
-  </script>
-<?php endif ?>
