@@ -357,7 +357,7 @@ function themeConfig($form)
   $weibo = new Typecho_Widget_Helper_Form_Element_Text('weibo', NULL, '#', _t('微博地址'), _t('输入微博地址'));
   $beian = new Typecho_Widget_Helper_Form_Element_Text('beian', NULL, NULL, _t('ICP备案号'), _t(''));
   $Subtitle = new Typecho_Widget_Helper_Form_Element_Text('Subtitle', NULL, NULL, _t('站点副标题'), _t(''));
-  $NickName = new Typecho_Widget_Helper_Form_Element_Text('NickName', NULL, 'Spring', _t('首页头像下的名称'), _t(''));
+  $NickName = new Typecho_Widget_Helper_Form_Element_Text('NickName', NULL, '视觉志', _t('首页头像下的名称'), _t(''));
   $bio = new Typecho_Widget_Helper_Form_Element_Text('bio', NULL, '我最不喜欢做选择，但我选择了，就一定不后悔。', _t('首页头像下的谏言'), _t(''));
   $alipay = new Typecho_Widget_Helper_Form_Element_Text('alipay', NULL, NULL, _t('支付宝收款二维码链接'), _t(''));
   $wpay = new Typecho_Widget_Helper_Form_Element_Text('wpay', NULL, NULL, _t('微信收款二维码链接'), _t(''));
