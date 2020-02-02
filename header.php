@@ -32,6 +32,9 @@ if (!empty($this->options->cdn) && $this->options->cdn) {
     <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/style.css'); ?>">
   <?php endif; ?>
   <?php $this->header(); ?>
+  <?php if (!Utils::isEnabled('enableComments', 'JConfig') && $this->is('post')): ?>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <?php endif ?>
 </head>
 <body>
 <div class="d-flex site-wrapper">
