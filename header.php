@@ -15,9 +15,7 @@ if (!empty($this->options->cdn) && $this->options->cdn) {
       'search' => _t('包含关键字 %s 的文章'),
       'tag' => _t('标签 %s 下的文章'),
       'author' => _t('%s 发布的文章')
-    ), '', ' - '); ?><?php $this->options->title(); ?><?php if ($this->is('index')): ?><?php if (!null == $this->options->Subtitle) {
-      echo ' - ' . $this->options->Subtitle;
-    } ?><?php endif; ?></title>
+    ), '', ' - '); ?><?php $this->options->title(); ?><?php if($this->is('index') && $this->options->Subtitle != null){echo ' - '.$this->options->Subtitle; } ?></title>
   <link rel="dns-prefetch" href="<?php $this->options->siteUrl(); ?>">
   <?php if (!empty($this->options->qiniu)): ?>
     <link rel="dns-prefetch" href="<?php echo $this->options->qiniu; ?>">
@@ -98,7 +96,7 @@ if (!empty($this->options->cdn) && $this->options->cdn) {
               <?php endwhile; ?>
               <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
               <?php while ($pages->next()): ?>
-                <li class="nav-item<?php if ($this->is('category', $category->slug)) {
+                <li class="nav-item<?php if ($this->is('page', $pages->slug)) {
                   echo ' nav-current active';
                 } ?>"><a class="nav-link" href="<?php $pages->permalink(); ?>"><?php $pages->title(); ?></a></li>
               <?php endwhile; ?>

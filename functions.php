@@ -355,7 +355,8 @@ function themeConfig($form)
   $APPKEY = new Typecho_Widget_Helper_Form_Element_Text('APPKEY', NULL, NULL, _t('APP KEY'), _t('输入在Valine获取的APP KEY'));
   $weibo = new Typecho_Widget_Helper_Form_Element_Text('weibo', NULL, '#', _t('微博地址'), _t('输入微博地址'));
   $beian = new Typecho_Widget_Helper_Form_Element_Text('beian', NULL, NULL, _t('ICP备案号'), _t(''));
-  $Subtitle = new Typecho_Widget_Helper_Form_Element_Text('Subtitle', NULL, '我最不喜欢做选择，但我选择了，就一定不后悔。', _t('站点描述'), _t(''));
+  $Subtitle = new Typecho_Widget_Helper_Form_Element_Text('Subtitle', NULL, NULL, _t('站点副标题'), _t(''));
+  $Admonition = new Typecho_Widget_Helper_Form_Element_Text('Admonition', NULL, '我最不喜欢做选择，但我选择了，就一定不后悔。', _t('首页头像下的谏言'), _t(''));
   $alipay = new Typecho_Widget_Helper_Form_Element_Text('alipay', NULL, NULL, _t('支付宝收款二维码链接'), _t(''));
   $wpay = new Typecho_Widget_Helper_Form_Element_Text('wpay', NULL, NULL, _t('微信收款二维码链接'), _t(''));
   $qiniu = new Typecho_Widget_Helper_Form_Element_Text('qiniu', NULL, NULL, _t('七牛云替换全站镜像'), _t('需要带http/https'));
@@ -364,6 +365,7 @@ function themeConfig($form)
   $form->addInput($logoUrl);
   $form->addInput($bgUrl);
   $form->addInput($Subtitle);
+  $form->addInput($Admonition);
   $form->addInput($beian);
   $form->addInput($qiniu);
   $form->addInput($weibo);

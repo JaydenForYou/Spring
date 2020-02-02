@@ -30,18 +30,14 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
 ?>
 <section class="main-hero">
   <div class="main-hero-bg"
-       style="background-image: url('<?php if (null != $this->getDescription() && !$this->is('index')) {
-         echo $this->getDescription();
-       } else {
-         Utils::getBackground();
-       } ?>')"></div>
+       style="background-image: url('<?php Utils::getBackground();?>')"></div>
   <div class="d-flex flex-column align-content-center justify-content-center main-hero-content">
     <div class="text-center main-hero-content-avatar">
       <img class="main-hero-content-avatar-img"
            src="<?= $this->options->logoUrl ?>" alt="头像"/>
     </div>
     <div class="text-center main-hero-content-title"><?php $this->options->title(); ?></div>
-    <div class="text-center main-hero-content-description"><?=$this->options->Subtitle?></div>
+    <div class="text-center main-hero-content-description"><?=$this->options->Admonition?></div>
     <div class="text-center main-hero-content-social">
       <a class="site-tooltip main-hero-content-social-links" target="_blank" rel="noreferrer noopener nofollow" href="<?=$this->options->QQGROUP?>" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="加入QQ群">
         <i class="fab fa-qq"></i>
@@ -67,9 +63,9 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
         <div class="post-card-image">
           <div class="post-card-image-shadow"></div>
   <?php if ($this->sequence % 2 == 0): ?>
-          <a href="<?php $this->permalink() ?>" class="post-card-image-link odd">
+          <a href="<?php $this->permalink() ?>" class="post-card-image-link even">
             <?php else: ?>
-            <a href="<?php $this->permalink() ?>" class="post-card-image-link even">
+            <a href="<?php $this->permalink() ?>" class="post-card-image-link odd">
             <?php endif ?>
             <div class="post-card-image-link-background"
                  style="background-image: url('<?php
