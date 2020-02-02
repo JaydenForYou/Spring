@@ -51,9 +51,6 @@ if (!empty($this->options->cdn) && $this->options->cdn) {
         </div>
       </div>
       <div class="list-group list-group-flush">
-          <a id="home" class="list-group-item list-group-item-action menu-item <?php if ($this->is('index')) {
-            echo 'active';
-          } ?>" href="<?php $this->options->siteUrl(); ?>">首页</a>
         <?php $this->widget('Widget_Metas_Category_List')->to($category); ?>
         <?php while ($category->next()): ?>
           <a class="list-group-item list-group-item-action menu-item <?php if ($this->is('category', $category->slug)) {
@@ -93,22 +90,17 @@ if (!empty($this->options->cdn) && $this->options->cdn) {
 
           <div class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
-              <li class="nav-item">
-                <a id="home" class="nav-link <?php if ($this->is('index')) {
-                  echo 'active';
-                } ?>" href="<?php $this->options->siteUrl(); ?>">首页</a>
-              </li>
               <?php $this->widget('Widget_Metas_Category_List')->to($category); ?>
               <?php while ($category->next()): ?>
-                <li class="nav-item"><a class="nav-link <?php if ($this->is('category', $category->slug)) {
-                    echo 'active';
-                  } ?>" href="<?php $category->permalink(); ?>"><?php $category->name(); ?></a></li>
+                <li class="nav-item<?php if ($this->is('category', $category->slug)) {
+                  echo ' nav-current active';
+                } ?>"><a class="nav-link" href="<?php $category->permalink(); ?>"><?php $category->name(); ?></a></li>
               <?php endwhile; ?>
               <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
               <?php while ($pages->next()): ?>
-                <li class="nav-item"><a class="nav-link <?php if ($this->is('page', $pages->slug)) {
-                    echo 'active';
-                  } ?>" href="<?php $pages->permalink(); ?>"><?php $pages->title(); ?></a></li>
+                <li class="nav-item<?php if ($this->is('category', $category->slug)) {
+                  echo ' nav-current active';
+                } ?>"><a class="nav-link" href="<?php $pages->permalink(); ?>"><?php $pages->title(); ?></a></li>
               <?php endwhile; ?>
             </ul>
             <div class="ml-auto nav-left">
