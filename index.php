@@ -36,8 +36,8 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
       <img class="main-hero-content-avatar-img"
            src="<?= $this->options->logoUrl ?>" alt="头像"/>
     </div>
-    <div class="text-center main-hero-content-title"><?php $this->options->title(); ?></div>
-    <div class="text-center main-hero-content-description"><?=$this->options->Admonition?></div>
+    <div class="text-center main-hero-content-title"><?php $this->options->NickName(); ?></div>
+    <div class="text-center main-hero-content-description"><?=$this->options->bio?></div>
     <div class="text-center main-hero-content-social">
       <a class="site-tooltip main-hero-content-social-links" target="_blank" rel="noreferrer noopener nofollow" href="<?=$this->options->QQGROUP?>" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="加入QQ群">
         <i class="fab fa-qq"></i>
