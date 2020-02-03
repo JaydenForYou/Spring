@@ -7,7 +7,7 @@ if (!empty($this->options->cdn) && $this->options->cdn) {
 <footer class="main-footer">
   <div class="container d-flex justify-content-md-between justify-content-center">
     <div class="text-center main-footer-copyright">
-      <p>Powered by <a href="https://typecho.org/" rel="noopener nofollow" target="_blank">TYPECHO</a>. Copyright &copy;
+      <p>Powered by <a href="https://ghost.org/" rel="noopener nofollow" target="_blank">TYPECHO</a>. Copyright &copy;
         2020. Crafted with <a href="https://github.com/JaydenForYou/Spring" target="_blank" rel="noopener nofollow">Spring</a>.
       </p>
     </div>
@@ -16,8 +16,7 @@ if (!empty($this->options->cdn) && $this->options->cdn) {
   <div
     class="container d-flex flex-wrap-reverse justify-content-md-between justify-content-center text-center main-footer-audit">
     <p>
-      <?php if (!null == $this->options->beian): ?><a href="http://www.miitbeian.gov.cn" target="_blank"
-                                                      rel="nofollow noopener"><?php echo $this->options->beian ?></a><?php endif ?>
+      <?php if (!null == $this->options->beian): ?><a href="http://www.miitbeian.gov.cn" target="_blank" rel="nofollow noopener"><?php echo $this->options->beian ?></a><?php endif ?>
     </p>
   </div>
 </footer>
@@ -30,12 +29,12 @@ if (!empty($this->options->cdn) && $this->options->cdn) {
     </button>
     <div class="search-content">
       <form id="search" method="post" action="<?php $this->options->siteUrl(); ?>" role="search">
-        <div class="search-form">
-          <i class="search-icon fas fa-search"></i>
-          <label>
-            <input type="text" name="s" id="ghost-search-field" class="search-input" placeholder="请输入搜索关键词...">
-          </label>
-        </div>
+      <div class="search-form">
+        <i class="search-icon fas fa-search"></i>
+        <label>
+          <input type="text" name="s" id="ghost-search-field" class="search-input" placeholder="请输入搜索关键词...">
+        </label>
+      </div>
       </form>
     </div>
   </div>
@@ -49,11 +48,10 @@ if (!empty($this->options->cdn) && $this->options->cdn) {
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
 <script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
 <script type="text/javascript" src="<?php $this->options->themeUrl('assets/js/bundle.js'); ?>"></script>
 <script>
   if (document.getElementById('vcomments') !== null) {
-    // eslint-disable-next-line no-undef
     new Valine({
       el: '#vcomments',
       appId: '<?php $this->options->APPID()?>',

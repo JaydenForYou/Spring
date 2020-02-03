@@ -30,7 +30,7 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
 ?>
   <section class="main-hero">
     <div class="main-hero-bg"
-         style="background-image: url('<?php Utils::getBackground(); ?>')"></div>
+         style="background-image: url('https://www.bing.com/th?id=OHR.Lunarnewyeareve2020_ZH-CN1514309048_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=HpEdgeAn')"></div>
     <div class="d-flex flex-column align-content-center justify-content-center main-hero-content">
       <div class="text-center main-hero-content-avatar">
         <img class="main-hero-content-avatar-img"
@@ -65,7 +65,7 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
   <main class="main-content">
     <div class="container-sm">
       <?php while ($this->next()): ?>
-        <article class="row mb-3 mb-md-5 post-card" data-aos="fade-up">
+        <article class="row mb-3 mb-md-5 post-card home-post-item">
           <div class="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-6 px-0<?php if ($this->sequence % 2 === 0) {
             echo ' order-md-last';
           } ?>">
@@ -109,7 +109,8 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
               <div class="d-flex align-items-center post-card-content-meta">
                 <div class="d-flex align-items-center mr-1 post-card-content-meta-authors">
                   <a href="<?php $this->author->permalink(); ?>"
-                     class="post-card-content-meta-authors-link site-tooltip" data-toggle="tooltip"
+                     class="post-card-content-meta-authors-link site-tooltip"
+                     data-toggle="tooltip"
                      data-placement="top" title="<?php $this->author(); ?>">
                     <?php echo $this->author->gravatar(320, 'G', NULL, 'img-thumbnail rounded-circle post-card-content-meta-authors-link-avatar') ?>
                   </a>

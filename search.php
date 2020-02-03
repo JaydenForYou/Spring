@@ -30,7 +30,7 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
 ?>
   <section class="main-hero">
     <div class="main-hero-bg"
-         style="background-image: url('<?php Utils::getBackground(); ?>')"></div>
+         style="background-image: url('https://www.bing.com/th?id=OHR.Lunarnewyeareve2020_ZH-CN1514309048_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=HpEdgeAn')"></div>
     <div class="d-flex flex-column align-content-center justify-content-center main-hero-content">
       <div class="text-center main-hero-content-avatar">
         <img class="main-hero-content-avatar-img"
@@ -65,27 +65,31 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
   <main class="main-content">
     <div class="container-sm">
       <?php while ($this->next()): ?>
-        <article class="row mb-3 mb-md-5 post-card" data-aos="fade-up">
-          <div class="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-6 px-0">
+        <article class="row mb-3 mb-md-5 post-card home-post-item">
+          <div class="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-6 px-0<?php if ($this->sequence % 2 === 0) {
+            echo ' order-md-last';
+          } ?>">
             <div class="post-card-image">
               <div class="post-card-image-shadow"></div>
-              <?php if ($this->sequence % 2 == 0): ?>
-              <a href="<?php $this->permalink() ?>" class="post-card-image-link even">
-                <?php else: ?>
-                <a href="<?php $this->permalink() ?>" class="post-card-image-link odd">
-                  <?php endif ?>
-                  <div class="post-card-image-link-background"
-                       style="background-image: url('<?php
-                       if ($this->fields->thumbnail) {
-                         echo $this->fields->thumbnail;
-                       } else {
-                         echo Utils::getThumbnail();
-                       }
-                       ?>')"></div>
-                </a>
+              <a href="<?php $this->permalink() ?>" class="post-card-image-link<?php if ($this->sequence % 2 === 0) {
+                echo ' even';
+              } else {
+                echo ' odd';
+              } ?>">
+                <div class="post-card-image-link-background"
+                     style="background-image: url('<?php
+                     if ($this->fields->thumbnail) {
+                       echo $this->fields->thumbnail;
+                     } else {
+                       echo Utils::getThumbnail();
+                     }
+                     ?>')"></div>
+              </a>
             </div>
           </div>
-          <div class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-6">
+          <div class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-6<?php if ($this->sequence % 2 === 0) {
+            echo ' order-md-first';
+          } ?>">
             <div class="d-flex flex-column justify-content-center post-card-content">
               <div class="text-center text-md-left mt-3 mt-md-0 post-card-content-tag">
                 <i class="fas fa-bookmark"></i>
@@ -104,7 +108,8 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
               </p>
               <div class="d-flex align-items-center post-card-content-meta">
                 <div class="d-flex align-items-center mr-1 post-card-content-meta-authors">
-                  <a href="<?php $this->permalink() ?>" class="post-card-content-meta-authors-link site-tooltip"
+                  <a href="<?php $this->author->permalink(); ?>"
+                     class="post-card-content-meta-authors-link site-tooltip"
                      data-toggle="tooltip"
                      data-placement="top" title="<?php $this->author(); ?>">
                     <?php echo $this->author->gravatar(320, 'G', NULL, 'img-thumbnail rounded-circle post-card-content-meta-authors-link-avatar') ?>
@@ -112,7 +117,7 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
                 </div>
                 <div class="d-flex flex-column align-items-start ml-1 post-card-content-meta-other">
                   <div class="post-card-content-meta-other-date">
-                    <?= date('Y年m月d日', $this->created) ?>
+                    <?= date('Y-m-d', $this->created) ?>
                   </div>
                 </div>
               </div>
@@ -123,30 +128,30 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
     </div>
     <?php if (ceil($this->getTotal() / $this->parameter->pageSize) <> 0): ?>
       <div class="container-sm">
-        <div class="py-3 py-md-5 site-pagination">
-          <nav aria-label="文章分页">
-            <ul class="mb-0 pagination">
-              <li class="page-item" <?php echo $hidden ?>>
-                <a class="page-link" href="/page/<?php echo $prev ?>" aria-label="上一页">
+      <div class="py-3 py-md-5 site-pagination">
+        <nav aria-label="文章分页">
+          <ul class="mb-0 pagination">
+            <li class="page-item" <?php echo $hidden ?>>
+              <a class="page-link" href="/page/<?php echo $prev ?>" aria-label="上一页">
           <span aria-hidden="true">
             <i class="fas fa-angle-left"></i>
           </span>
-                </a>
-              </li>
-              <li class="page-item"><a class="page-link">第<?= $cpage ?>
-                  页，共<?php echo ceil($this->getTotal() / $this->parameter->pageSize); ?>页</a></li>
-              <li class="page-item" <?php echo $hiddens ?>>
-                <a class="page-link" href="/page/<?php echo $next ?>" aria-label="下一页">
+              </a>
+            </li>
+            <li class="page-item"><a class="page-link">第<?= $cpage ?>
+                页，共<?php echo ceil($this->getTotal() / $this->parameter->pageSize); ?>页</a></li>
+            <li class="page-item" <?php echo $hiddens ?>>
+              <a class="page-link" href="/page/<?php echo $next ?>" aria-label="下一页">
           <span aria-hidden="true">
             <i class="fas fa-angle-right"></i>
           </span>
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-
+              </a>
+            </li>
+          </ul>
+        </nav>
       </div>
+
+    </div>
     <?php else: ?>
       <div class="container-sm">
         <p style="text-align: center"><strong>WHAT ARE YOU LOOKING FOR?</strong></p>
