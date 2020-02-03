@@ -59,14 +59,10 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
   <div class="container-sm">
 <?php while ($this->next()): ?>
     <article class="row mb-3 mb-md-5 post-card" data-aos="fade-up">
-      <div class="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-6 px-0">
+      <div class="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-6 px-0<?php if ($this->sequence % 2 === 0){echo ' order-md-last';} ?>">
         <div class="post-card-image">
           <div class="post-card-image-shadow"></div>
-  <?php if ($this->sequence % 2 == 0): ?>
-          <a href="<?php $this->permalink() ?>" class="post-card-image-link even">
-            <?php else: ?>
-            <a href="<?php $this->permalink() ?>" class="post-card-image-link odd">
-            <?php endif ?>
+          <a href="<?php $this->permalink() ?>" class="post-card-image-link<?php if ($this->sequence % 2 === 0){echo ' even';}else{echo ' odd';} ?>">
             <div class="post-card-image-link-background"
                  style="background-image: url('<?php
                  if ($this->fields->thumbnail) {
@@ -78,7 +74,7 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
           </a>
         </div>
       </div>
-      <div class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-6">
+      <div class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-6<?php if ($this->sequence % 2 === 0){echo ' order-md-first';} ?>">
         <div class="d-flex flex-column justify-content-center post-card-content">
           <div class="text-center text-md-left mt-3 mt-md-0 post-card-content-tag">
             <i class="fas fa-bookmark"></i>
