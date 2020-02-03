@@ -5,7 +5,7 @@
        style="background-image: url('<?php echo $this->fields->thumbnail ?>')"></div>
   <div class="d-flex flex-column align-content-center justify-content-center main-hero-content">
     <div class="text-center main-hero-content-title"><?php $this->title() ?></div>
-    <div class="text-center main-hero-content-description"><?php $this->author() ?> / <?= date('Y年m月d日', $this->created) ?> / 阅读量：<?php get_post_view($this) ?></div>
+    <div class="text-center main-hero-content-description"><?php $this->author() ?> / <?= date('Y-m-d', $this->created) ?></div>
   </div>
 </section>
 

@@ -7,8 +7,7 @@
   <div class="d-flex flex-column align-content-center justify-content-center main-hero-content">
     <div class="text-center main-hero-content-title"><?php $this->title() ?></div>
     <div class="text-center main-hero-content-description"><?php $this->author() ?>
-      / <?= date('Y年m月d日', $this->created) ?> / <?php $this->category(' / '); ?> /
-      阅读量：<?php get_post_view($this) ?></div>
+      / <?= date('Y-m-d', $this->created) ?> / <?php $this->category(' / '); ?></div>
   </div>
 </section>
 
