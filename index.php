@@ -93,7 +93,7 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
           </p>
           <div class="d-flex align-items-center post-card-content-meta">
             <div class="d-flex align-items-center mr-1 post-card-content-meta-authors">
-              <a href="<?php $this->permalink() ?>" class="post-card-content-meta-authors-link site-tooltip" data-toggle="tooltip"
+              <a href="<?php $this->author->permalink(); ?>" class="post-card-content-meta-authors-link site-tooltip" data-toggle="tooltip"
                  data-placement="top" title="<?php $this->author(); ?>">
                 <?php echo $this->author->gravatar(320, 'G', NULL, 'img-thumbnail rounded-circle post-card-content-meta-authors-link-avatar') ?>
               </a>

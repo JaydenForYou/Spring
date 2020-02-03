@@ -16,7 +16,7 @@
   <link rel="shortcut icon" href="<?= $this->options->logoUrl ?>">
   <meta http-equiv="cleartype" content="on">
 
-  <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/app/css/ghost.min.css?v=37cfc8869c'); ?>"/>
+  <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/ghost.min.css?v=37cfc8869c'); ?>"/>
 
 </head>
 <body>
