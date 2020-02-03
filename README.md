@@ -1,6 +1,7 @@
 # TYPECHO Theme - Spring
 
-Nothing to say
+## 使用指南
+* 请把主题文件名改为Spring
 
 ### License
 
