@@ -75,6 +75,107 @@
           <a class="author-card-button" href="<?php $this->author->permalink(); ?>">更多文章</a>
         </div>
       </section>
+      <?php if (posts($this) != false || thePrev($this) != false || theNext($this) != false): ?>
+        <aside class="post-read-more mx-3 mx-sm-0">
+          <div class="row read-next-feed">
+            <div class="col-lg px-0 px-sm-3 d-flex min-h-300">
+              <article class="read-next-card"
+                       style="background-image: url(https://demo.ghost.io/content/images/size/w600/2017/07/blog-cover.jpg)">
+                <header class="read-next-card-header">
+                  <small class="read-next-card-header-sitetitle">&mdash; <?php $this->author(); ?> &mdash;</small>
+                  <h3 class="read-next-card-header-title">
+                    <?php $this->category(' '); ?>
+                  </h3>
+                </header>
+                <div class="read-next-divider">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                      d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"></path>
+                  </svg>
+                </div>
+                <div class="read-next-card-content">
+                  <ul>
+                    <?php if (posts($this) != false): ?>
+                      <?php foreach (posts($this) as $v) { ?>
+                        <li><a href="<?= $v['url'] ?>"><?= $v['title'] ?></a></li>
+                      <?php } ?>
+                    <?php endif; ?>
+                  </ul>
+                </div>
+                <footer class="read-next-card-footer">
+                  <a href="<?php $this->author->permalink(); ?>">查看更多文章 →</a>
+                </footer>
+              </article>
+            </div>
+            <?php if (thePrev($this) != false): ?>
+              <div class="col-lg px-0 px-sm-3 d-flex min-h-300">
+                <article class="post-read-next">
+                  <a class="post-read-next-image-link" href="<?php echo thePrev($this)['url']; ?>">
+                    <img class="post-read-next-image" src="<?php if (!empty(thePrev($this)['thumbnail'])) {
+                      echo thePrev($this)['thumbnail'];
+                    } else {
+                      echo 'https://casper.ghost.org/v2.0.0/images/welcome-to-ghost.jpg';
+                    } ?>" alt="#">
+                  </a>
+                  <div class="post-read-next-content">
+                    <a class="post-read-next-content-link" href="<?php echo thePrev($this)['url']; ?>">
+                      <header class="post-read-next-header">
+                        <h2 class="post-read-next-title"><?php echo thePrev($this)['title']; ?></h2>
+                      </header>
+                      <section class="post-read-next-excerpt">
+                        <p><?php echo thePrev($this)['content']; ?></p>
+                      </section>
+                    </a>
+                    <footer class="post-read-next-meta">
+                      <ul class="author-list">
+                        <li class="author-list-item">
+                          <a href="<?php echo thePrev($this)['url']; ?>" class="static-avatar">
+                            <?php echo $this->author->gravatar(320, 'G', NULL, 'author-profile-image') ?>
+                            <span class="author-profile-name"><?php $this->author(); ?></span>
+                          </a>
+                        </li>
+                      </ul>
+                    </footer>
+                  </div>
+                </article>
+              </div>
+            <?php endif; ?>
+            <?php if (theNext($this) != false): ?>
+              <div class="col-xl px-0 px-sm-3 d-flex min-h-300">
+                <article class="post-read-next">
+                  <a class="post-read-next-image-link" href="<?php echo theNext($this)['url']; ?>">
+                    <img class="post-read-next-image" src="<?php if (!empty(theNext($this)['thumbnail'])) {
+                      echo theNext($this)['thumbnail'];
+                    } else {
+                      echo 'https://casper.ghost.org/v2.0.0/images/welcome-to-ghost.jpg';
+                    } ?>" alt="#">
+                  </a>
+                  <div class="post-read-next-content">
+                    <a class="post-read-next-content-link" href="<?php echo theNext($this)['url']; ?>">
+                      <header class="post-read-next-header">
+                        <h2 class="post-read-next-title"><?php echo theNext($this)['title']; ?></h2>
+                      </header>
+                      <section class="post-read-next-excerpt">
+                        <p><?php echo theNext($this)['content']; ?></p>
+                      </section>
+                    </a>
+                    <footer class="post-read-next-meta">
+                      <ul class="author-list">
+                        <li class="author-list-item">
+                          <a href="<?php echo theNext($this)['url']; ?>" class="static-avatar">
+                            <?php echo $this->author->gravatar(320, 'G', NULL, 'author-profile-image') ?>
+                            <span class="author-profile-name"><?php $this->author(); ?></span>
+                          </a>
+                        </li>
+                      </ul>
+                    </footer>
+                  </div>
+                </article>
+              </div>
+            <?php endif; ?>
+          </div>
+        </aside>
+      <?php endif; ?>
       <div id="comments" class="mx-3 mx-sm-0 w-100 post-comments">
         <?php if (Utils::isEnabled('enableComments', 'JConfig')): ?>
           <?php $this->need('comments.php'); ?>

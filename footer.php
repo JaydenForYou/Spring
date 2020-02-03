@@ -30,12 +30,12 @@ if (!empty($this->options->cdn) && $this->options->cdn) {
     </button>
     <div class="search-content">
       <form id="search" method="post" action="<?php $this->options->siteUrl(); ?>" role="search">
-      <div class="search-form">
-        <i class="search-icon fas fa-search"></i>
-        <label>
-          <input type="text" name="s" id="ghost-search-field" class="search-input" placeholder="请输入搜索关键词...">
-        </label>
-      </div>
+        <div class="search-form">
+          <i class="search-icon fas fa-search"></i>
+          <label>
+            <input type="text" name="s" id="ghost-search-field" class="search-input" placeholder="请输入搜索关键词...">
+          </label>
+        </div>
       </form>
     </div>
   </div>

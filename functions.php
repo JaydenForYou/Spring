@@ -703,4 +703,119 @@ function getCommentAt($coid)
   }
 }
 
+function ounts($sum, $total)
+{
+  if ($sum > $total) {
+    $sum -= 1;
+    return ounts($sum, $total);
+  } else {
+    return $sum;
+  }
+}
+
+/**
+ * 随机输出文章
+ *
+ * @access public
+ */
+function posts($widget)
+{
+  $db = Typecho_Db::get();
+  $sql = $db->select()->from('table.contents')
+    ->where('table.contents.status = ?', 'publish')
+    ->where('table.contents.type = ?', $widget->type)
+    ->where('table.contents.password IS NULL')
+    ->order('table.contents.created', Typecho_Db::SORT_ASC);
+  $data = $db->fetchALL($sql);
+  $total = count($data);
+  $nums = ounts(3, $total);
+  $temp = array_rand($data, $nums);
+  $content = array();
+  foreach ($temp as $val) {
+    $content[] = $data[$val];
+  }
+  if ($content) {
+    $arr = array();
+    foreach ($content as $key => $v) {
+      $contents = $widget->filter($content[$key]);
+      $arr[$key]['title'] = $contents['title'];
+      $arr[$key]['url'] = $contents['permalink'];
+    }
+    return $arr;
+  } else {
+    return false;
+  }
+}
+
+/**
+ * 显示下一篇
+ *
+ * @access public
+ */
+function theNext($widget, $default = NULL)
+{
+  $db = Typecho_Db::get();
+  $sql = $db->select()->from('table.contents')
+    ->where('table.contents.created > ?', $widget->created)
+    ->where('table.contents.status = ?', 'publish')
+    ->where('table.contents.type = ?', $widget->type)
+    ->where('table.contents.password IS NULL')
+    ->order('table.contents.created', Typecho_Db::SORT_ASC)
+    ->limit(1);
+  $content = $db->fetchRow($sql);
+  $arr = array();
+  $fields = array();
+  $rows = $db->fetchAll($db->select()->from('table.fields')
+    ->where('cid = ?', $content['cid']));
+  foreach ($rows as $row) {
+    $fields[$row['name']] = $row[$row['type'] . '_value'];
+  }
+  if ($content) {
+    $content = $widget->filter($content);
+    $arr['url'] = $content['permalink'];
+    $arr['title'] = $content['title'];
+    $arr['content'] = $content['text'];
+    $arr['thumbnail'] = $fields['thumbnail'];
+    return $arr;
+  } else {
+    return false;
+  }
+}
+
+/**
+ * 显示上一篇
+ *
+ * @access public
+ */
+function thePrev($widget, $default = NULL)
+{
+  $db = Typecho_Db::get();
+  $sql = $db->select()->from('table.contents')
+    ->where('table.contents.created < ?', $widget->created)
+    ->where('table.contents.status = ?', 'publish')
+    ->where('table.contents.type = ?', $widget->type)
+    ->where('table.contents.password IS NULL')
+    ->order('table.contents.created', Typecho_Db::SORT_DESC)
+    ->limit(1);
+  $content = $db->fetchRow($sql);
+  $arr = array();
+  $fields = array();
+  $rows = $db->fetchAll($db->select()->from('table.fields')
+    ->where('cid = ?', $content['cid']));
+  foreach ($rows as $row) {
+    $fields[$row['name']] = $row[$row['type'] . '_value'];
+  }
+  return $content;
+  if ($content) {
+    $content = $widget->filter($content);
+    $arr['url'] = $content['permalink'];
+    $arr['title'] = $content['title'];
+    $arr['content'] = $content['text'];
+    $arr['thumbnail'] = $fields['thumbnail'];
+    return $arr;
+  } else {
+    return false;
+  }
+}
+
 
