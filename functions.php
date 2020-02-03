@@ -747,6 +747,18 @@ function posts($widget)
   }
 }
 
+function excerpt($post_excerpt)
+{
+  $post_excerpt = strip_tags(htmlspecialchars_decode($post_excerpt));
+  $post_excerpt = trim($post_excerpt);
+
+  $patternArr = array('/\s/', '/ /');
+  $replaceArr = array('', '');
+  $post_excerpt = preg_replace($patternArr, $replaceArr, $post_excerpt);
+  $value = mb_strcut($post_excerpt, 0, 400, 'utf-8');
+  return $value;
+}
+
 /**
  * 显示下一篇
  *
@@ -774,7 +786,7 @@ function theNext($widget, $default = NULL)
     $content = $widget->filter($content);
     $arr['url'] = $content['permalink'];
     $arr['title'] = $content['title'];
-    $arr['content'] = $content['text'];
+    $arr['content'] = excerpt($content['text']);
     $arr['thumbnail'] = $fields['thumbnail'];
     return $arr;
   } else {
@@ -805,12 +817,11 @@ function thePrev($widget, $default = NULL)
   foreach ($rows as $row) {
     $fields[$row['name']] = $row[$row['type'] . '_value'];
   }
-  return $content;
   if ($content) {
     $content = $widget->filter($content);
     $arr['url'] = $content['permalink'];
     $arr['title'] = $content['title'];
-    $arr['content'] = $content['text'];
+    $arr['content'] = excerpt($content['text']);
     $arr['thumbnail'] = $fields['thumbnail'];
     return $arr;
   } else {
