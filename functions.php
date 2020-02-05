@@ -791,6 +791,7 @@ function theNext($widget)
     $arr['content'] = excerpt($content['text']);
     $arr['thumbnail'] = $fields['thumbnail'];
     $arr['category'] = $content['categories'][0]['name'];
+    $arr['rate'] = getRate($content['text']);
     return $arr;
   } else {
     return false;
@@ -827,10 +828,19 @@ function thePrev($widget)
     $arr['content'] = excerpt($content['text']);
     $arr['thumbnail'] = $fields['thumbnail'];
     $arr['category'] = $content['categories'][0]['name'];
+    $arr['rate'] = getRate($content['text']);
     return $arr;
   } else {
     return false;
   }
+}
+
+function getRate($content){
+  $speed = 300;
+  $nums = preg_replace('/[\x80-\xff]{1,3}/', ' ', $content, -1);
+  $nums = strlen($nums);
+  $rate = ceil($nums / $speed);
+  return $rate;
 }
 
 function getCategory($widget) {
@@ -842,6 +852,7 @@ function getCategory($widget) {
   if($content){
     $content = $widget->filter($content);
     $arr['category'] = $content['categories'][0]['name'];
+    $arr['url'] = $content['categories'][0]['permalink'];
     return $arr;
   }else{
     return false;

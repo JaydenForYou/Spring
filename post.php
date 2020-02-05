@@ -81,7 +81,7 @@
                 <header class="read-next-card-header">
                   <small class="read-next-card-header-sitetitle">&mdash; <?php $this->author(); ?> &mdash;</small>
                   <h3 class="read-next-card-header-title">
-                    <?php echo getCategory($this)['category']; ?>
+                    <a href="<?= getCategory($this)['url']; ?>"><?= getCategory($this)['category']; ?></a>
                   </h3>
                 </header>
                 <div class="read-next-divider">
@@ -100,7 +100,7 @@
                   </ul>
                 </div>
                 <footer class="read-next-card-footer">
-                  <a href="<?php $this->author->permalink(); ?>">查看更多文章 →</a>
+                  <a href="<?= getCategory($this)['url']; ?>">查看更多文章 →</a>
                 </footer>
               </article>
             </div>
@@ -134,6 +134,7 @@
                           </a>
                         </li>
                       </ul>
+                      <span class="reading-time"><?= thePrev($this)['rate'] ?>分钟阅读</span>
                     </footer>
                   </div>
                 </article>
@@ -169,6 +170,7 @@
                           </a>
                         </li>
                       </ul>
+                      <span class="reading-time"><?= theNext($this)['rate'] ?>分钟阅读</span>
                     </footer>
                   </div>
                 </article>

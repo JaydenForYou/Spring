@@ -119,6 +119,9 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
                   <div class="post-card-content-meta-other-date">
                     <?= date('Y-m-d', $this->created) ?>
                   </div>
+                  <div class="post-card-content-meta-other-readtime">
+                    <?=getRate($this->text);?>分钟阅读
+                  </div>
                 </div>
               </div>
             </div>
