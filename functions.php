@@ -740,6 +740,8 @@ function posts($widget)
       $contents = $widget->filter($content[$key]);
       $arr[$key]['title'] = $contents['title'];
       $arr[$key]['url'] = $contents['permalink'];
+      //$arr[$key]['category'] = $contents['categories'][0]['name'];
+      //$arr[$key]['timeStamp'] = $contents['date']->timeStamp;
     }
     return $arr;
   } else {
@@ -764,7 +766,7 @@ function excerpt($post_excerpt)
  *
  * @access public
  */
-function theNext($widget, $default = NULL)
+function theNext($widget)
 {
   $db = Typecho_Db::get();
   $sql = $db->select()->from('table.contents')
@@ -788,6 +790,7 @@ function theNext($widget, $default = NULL)
     $arr['title'] = $content['title'];
     $arr['content'] = excerpt($content['text']);
     $arr['thumbnail'] = $fields['thumbnail'];
+    $arr['category'] = $content['categories'][0]['name'];
     return $arr;
   } else {
     return false;
@@ -799,7 +802,7 @@ function theNext($widget, $default = NULL)
  *
  * @access public
  */
-function thePrev($widget, $default = NULL)
+function thePrev($widget)
 {
   $db = Typecho_Db::get();
   $sql = $db->select()->from('table.contents')
@@ -823,8 +826,24 @@ function thePrev($widget, $default = NULL)
     $arr['title'] = $content['title'];
     $arr['content'] = excerpt($content['text']);
     $arr['thumbnail'] = $fields['thumbnail'];
+    $arr['category'] = $content['categories'][0]['name'];
     return $arr;
   } else {
+    return false;
+  }
+}
+
+function getCategory($widget) {
+  $db = Typecho_Db::get();
+  $sql = $db->select()->from('table.contents')
+    ->where('table.contents.cid = ?', $widget->cid);
+  $content = $db->fetchRow($sql);
+  $arr = array();
+  if($content){
+    $content = $widget->filter($content);
+    $arr['category'] = $content['categories'][0]['name'];
+    return $arr;
+  }else{
     return false;
   }
 }
