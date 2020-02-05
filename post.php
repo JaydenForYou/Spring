@@ -2,10 +2,10 @@
 <?php $this->need('header.php'); ?>
 <section class="main-hero">
   <div class="main-hero-bg"
-       style="background-image: url('https://demo.ghost.io/content/images/size/w2000/2018/10/testimg3-1.jpg')"></div>
+       style="background-image: url('<?php echo $this->fields->thumbnail ?>')"></div>
   <div class="d-flex flex-column align-content-center justify-content-center main-hero-content">
-    <div class="text-center main-hero-content-title">Dart基础学习</div>
-    <div class="text-center main-hero-content-description">淮城一只猫 / 2020-01-22 / 编程技术 / 阅读量：222</div>
+    <div class="text-center main-hero-content-title"><?php $this->title() ?></div>
+    <div class="text-center main-hero-content-description"><?php $this->author() ?> / <?= date('Y-m-d', $this->created) ?> / <?= getCategory($this)['category'] ?></div>
   </div>
 </section>
 
