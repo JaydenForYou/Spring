@@ -2,10 +2,11 @@
 <?php $this->need('header.php'); ?>
 <section class="main-hero">
   <div class="main-hero-bg"
-       style="background-image: url('<?php echo $this->fields->thumbnail ?>')"></div>
+       style="background-image: url('<?= $this->fields->thumbnail ?>')"></div>
   <div class="d-flex flex-column align-content-center justify-content-center main-hero-content">
-    <div class="text-center main-hero-content-title"><?php $this->title() ?></div>
-    <div class="text-center main-hero-content-description"><?php $this->author() ?> / <?= date('Y-m-d', $this->created) ?> / <?= getCategory($this)['category'] ?></div>
+    <div class="text-center main-hero-content-title"><?= $this->title; ?></div>
+    <div class="text-center main-hero-content-description"><?php $this->author(); ?> / <?= date('Y-m-d', $this->created) ?>
+      / <?= getCategory($this)['category'] ?></div>
   </div>
 </section>
 
@@ -13,7 +14,7 @@
   <div class="container-sm">
     <div class="row">
       <article class="borderbox post-content">
-        <?php echo Utils::getContent($this->content); ?>
+        <?= Utils::getContent($this->content); ?>
       </article>
       <section class="post-donation text-center w-100">
         <button type="button" class="btn btn-donation" data-toggle="collapse" data-target="#collapseDonation"
@@ -50,7 +51,7 @@
         </li>
         <li class="post-copyright-link">
           <strong>文章链接：</strong>
-          <a href="<?php $this->permalink() ?>" title="<?php $this->title() ?>"><?php $this->permalink() ?></a>
+          <a href="<?= $this->permalink; ?>" title="<?= $this->title; ?>"><?= $this->permalink; ?></a>
         </li>
         <li class="post-copyright-license">
           <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
@@ -63,13 +64,13 @@
           <?php echo $this->author->gravatar(320, 'G', NULL, 'author-profile-image') ?>
           <section class="author-card-content">
             <h4 class="author-card-name">
-              <a href="<?php $this->author->permalink(); ?>"><?php $this->author(); ?></a>
+              <a href="<?= $this->author->permalink; ?>"><?php $this->author(); ?></a>
             </h4>
             <p><?= $this->options->bio ?></p>
           </section>
         </section>
         <div class="post-footer-right">
-          <a class="author-card-button" href="<?php $this->author->permalink(); ?>">更多文章</a>
+          <a class="author-card-button" href="<?= $this->author->permalink; ?>">更多文章</a>
         </div>
       </section>
       <?php if (posts($this) != false || thePrev($this) != false || theNext($this) != false): ?>

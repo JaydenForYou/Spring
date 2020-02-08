@@ -37,12 +37,13 @@ if (!empty($this->options->cdn) && $this->options->cdn) {
   <?php if (!Utils::isEnabled('enableComments', 'JConfig') && $this->is('post')): ?>
     <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
   <?php endif ?>
+</head>
 <body>
 <div class="d-flex site-wrapper">
   <div class="d-block d-lg-none d-xl-none sidebar-wrapper">
     <div class="sidebar-container">
       <div class="d-flex justify-content-between sidebar-header">
-        <div class="sidebar-title"><?php $this->options->title(); ?></div>
+        <div class="sidebar-title"><?=$this->options->title;?></div>
         <div class="d-flex sidebar-right">
           <div class="d-flex align-items-center justify-content-center sidebar-search click-search">
             <i class="fas fa-search"></i>
@@ -82,7 +83,7 @@ if (!empty($this->options->cdn) && $this->options->cdn) {
           <a class="navbar-brand" href="/">
             <img src="https://getbootstrap.com/docs/4.4/assets/brand/bootstrap-solid.svg" width="30" height="30"
                  class="d-inline-block align-top navbar-brand-logo" alt="">
-            <?php $this->options->title(); ?>
+            <?=$this->options->title;?>
           </a>
 
           <button class="navbar-toggler sidebar-toggler" type="button" data-toggle="collapse"

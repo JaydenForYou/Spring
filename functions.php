@@ -1,6 +1,6 @@
 <?php
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
-define('Spring_VERSION', '1.0.0');
+define('Spring_VERSION', '1.0.1');
 define('__TYPECHO_GRAVATAR_PREFIX__', Helper::options()->Gravatar ? Helper::options()->Gravatar : '//cdn.v2ex.com/gravatar/');
 require_once 'lib/Utils.php';
 require_once 'lib/Comments.php';

@@ -7,7 +7,7 @@ if (!empty($this->options->cdn) && $this->options->cdn) {
 <footer class="main-footer">
   <div class="container d-flex justify-content-md-between justify-content-center">
     <div class="text-center main-footer-copyright">
-      <p>Powered by <a href="https://ghost.org/" rel="noopener nofollow" target="_blank">TYPECHO</a>. Copyright &copy;
+      <p>Powered by <a href="https://typecho.org/" rel="noopener nofollow" target="_blank">TYPECHO</a>. Copyright &copy;
         2020. Crafted with <a href="https://github.com/JaydenForYou/Spring" target="_blank" rel="noopener nofollow">Spring</a>.
       </p>
     </div>
@@ -28,14 +28,14 @@ if (!empty($this->options->cdn) && $this->options->cdn) {
       <span aria-hidden="true">&times;</span>
     </button>
     <div class="search-content">
-      <form id="search" method="post" action="<?php $this->options->siteUrl(); ?>" role="search">
       <div class="search-form">
         <i class="search-icon fas fa-search"></i>
         <label>
-          <input type="text" name="s" id="ghost-search-field" class="search-input" placeholder="请输入搜索关键词...">
+          <input type="text" id="ghost-search-field" class="search-input" placeholder="请输入搜索关键词...">
         </label>
       </div>
-      </form>
+      <div class="search-meta" data-no-results-text="有 [results] 篇文章" style="">有 0 篇文章</div>
+      <div id="ghost-search-results" class="search-results"></div>
     </div>
   </div>
 </div>

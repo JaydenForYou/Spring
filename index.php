@@ -4,7 +4,7 @@
  *
  * @package Spring
  * @author 林尽欢
- * @version 1.0.0
+ * @version 1.0.1
  * @link https://iobiji.com
  */
 
@@ -36,7 +36,7 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
         <img class="main-hero-content-avatar-img"
              src="<?= $this->options->logoUrl ?>" alt="头像"/>
       </div>
-      <div class="text-center main-hero-content-title"><?php $this->options->NickName(); ?></div>
+      <div class="text-center main-hero-content-title"><?= $this->options->NickName ?></div>
       <div class="text-center main-hero-content-description"><?= $this->options->bio ?></div>
       <div class="text-center main-hero-content-social">
         <a class="site-tooltip main-hero-content-social-links" target="_blank" rel="noreferrer noopener nofollow"
@@ -71,7 +71,7 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
           } ?>">
             <div class="post-card-image">
               <div class="post-card-image-shadow"></div>
-              <a href="<?php $this->permalink() ?>" class="post-card-image-link<?php if ($this->sequence % 2 === 0) {
+              <a href="<?= $this->permalink; ?>" class="post-card-image-link<?php if ($this->sequence % 2 === 0) {
                 echo ' even';
               } else {
                 echo ' odd';
@@ -96,7 +96,7 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
                 <?php $this->category('/', false); ?>
               </div>
               <h3 class="post-card-content-title">
-                <a href="<?php $this->permalink() ?>" class="post-card-content-title-link"><?php $this->title() ?></a>
+                <a href="<?= $this->permalink; ?>" class="post-card-content-title-link"><?= $this->title; ?></a>
               </h3>
               <p class="mb-3 mb-md-5 post-card-content-excerpt">
                 <?php
@@ -108,8 +108,7 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
               </p>
               <div class="d-flex align-items-center post-card-content-meta">
                 <div class="d-flex align-items-center mr-1 post-card-content-meta-authors">
-                  <a href="<?php $this->author->permalink(); ?>"
-                     class="post-card-content-meta-authors-link site-tooltip"
+                  <a href="<?= $this->author->permalink; ?>" class="post-card-content-meta-authors-link site-tooltip"
                      data-toggle="tooltip"
                      data-placement="top" title="<?php $this->author(); ?>">
                     <?php echo $this->author->gravatar(320, 'G', NULL, 'img-thumbnail rounded-circle post-card-content-meta-authors-link-avatar') ?>
@@ -120,7 +119,7 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
                     <?= date('Y-m-d', $this->created) ?>
                   </div>
                   <div class="post-card-content-meta-other-readtime">
-                    <?=getRate($this->text);?>分钟阅读
+                    <?= getRate($this->text); ?>分钟阅读
                   </div>
                 </div>
               </div>
