@@ -16,7 +16,8 @@ if (!empty($this->options->cdn) && $this->options->cdn) {
   <div
     class="container d-flex flex-wrap-reverse justify-content-md-between justify-content-center text-center main-footer-audit">
     <p>
-      <?php if (!null == $this->options->beian): ?><a href="http://www.miitbeian.gov.cn" target="_blank" rel="nofollow noopener"><?php echo $this->options->beian ?></a><?php endif ?>
+      <?php if (!null == $this->options->beian): ?><a href="http://www.miitbeian.gov.cn" target="_blank"
+                                                      rel="nofollow noopener"><?php echo $this->options->beian ?></a><?php endif ?>
     </p>
   </div>
 </footer>
@@ -28,14 +29,14 @@ if (!empty($this->options->cdn) && $this->options->cdn) {
       <span aria-hidden="true">&times;</span>
     </button>
     <div class="search-content">
-      <div class="search-form">
-        <i class="search-icon fas fa-search"></i>
-        <label>
-          <input type="text" id="ghost-search-field" class="search-input" placeholder="请输入搜索关键词...">
-        </label>
-      </div>
-      <div class="search-meta" data-no-results-text="有 [results] 篇文章" style="">有 0 篇文章</div>
-      <div id="ghost-search-results" class="search-results"></div>
+      <form id="search" method="post" action="<?php $this->options->siteUrl(); ?>" role="search">
+        <div class="search-form">
+          <i class="search-icon fas fa-search"></i>
+          <label>
+            <input type="text" name="s" id="ghost-search-field" class="search-input" placeholder="请输入搜索关键词...">
+          </label>
+        </div>
+      </form>
     </div>
   </div>
 </div>
@@ -45,6 +46,7 @@ if (!empty($this->options->cdn) && $this->options->cdn) {
 </div>
 
 </div>
+
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
 <script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
