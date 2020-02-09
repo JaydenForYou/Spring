@@ -393,12 +393,12 @@ function themeConfig($form)
 
 function themeFields($layout)
 {
-  //$showTOC = new Typecho_Widget_Helper_Form_Element_Radio('showTOC', array(true => _t('开启'), false => _t('关闭')), false, _t('文章目录'), _t('仅会解析h2和h3标题，最多解析两层'));
+  //$showTOC = new Typecho_Widget_Helper_Form_Element_Radio('showTOC', array(true => _t('开启'), false => _t('关闭')), false, _t('TOC文章目录解析'), _t('1代表开启,0代表关闭,解析h1-h6标签'));
   $previewContent = new Typecho_Widget_Helper_Form_Element_Text('previewContent', NULL, NULL, _t('文章摘要'), _t('设置文章的预览内容，留空自动截取文章前55个字。'));
   $thumbnail = new Typecho_Widget_Helper_Form_Element_Text('thumbnail', NULL, NULL, _t('文章/页面缩略图Url'), _t('需要带上http(s)://'));
   $layout->addItem($thumbnail);
-  $layout->addItem($previewContent);
   //$layout->addItem($showTOC);
+  $layout->addItem($previewContent);
 }
 
 function get_post_view($archive)

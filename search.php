@@ -34,27 +34,33 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
   <div class="d-flex flex-column align-content-center justify-content-center main-hero-content">
     <div class="text-center main-hero-content-avatar">
       <img class="main-hero-content-avatar-img"
-           src="https://gravatar.loli.net/avatar/06d7143dd8b966eb6e1403f17b3fc624?s=320&d=mm&r=g 2x" alt="头像"/>
+           src="<?= $this->options->logoUrl ?>" alt="头像"/>
     </div>
-    <div class="text-center main-hero-content-title">淮城一只猫</div>
-    <div class="text-center main-hero-content-description">永远年轻，永远热泪盈眶！</div>
+    <div class="text-center main-hero-content-title"><?php $this->options->NickName(); ?></div>
+    <div class="text-center main-hero-content-description"><?= $this->options->bio ?></div>
     <div class="text-center main-hero-content-social">
-      <a class="main-hero-content-social-links" href="#">
+      <a class="site-tooltip main-hero-content-social-links" target="_blank" rel="noreferrer noopener nofollow"
+         href="<?= $this->options->QQGROUP ?>" data-toggle="tooltip" data-placement="bottom" title=""
+         data-original-title="加入QQ群">
         <i class="fab fa-qq"></i>
       </a>
-      <a class="main-hero-content-social-links" href="#">
+      <a class="site-tooltip main-hero-content-social-links" href="#" data-toggle="tooltip" data-placement="bottom"
+         title="" data-original-title="暂无信息">
         <i class="fab fa-weixin"></i>
       </a>
-      <a class="main-hero-content-social-links" href="#">
+      <a class="site-tooltip main-hero-content-social-links" target="_blank" rel="noreferrer noopener nofollow"
+         href="<?= $this->options->weibo ?>" data-toggle="tooltip" data-placement="bottom" title=""
+         data-original-title="访问微博">
         <i class="fab fa-weibo"></i>
       </a>
-      <a class="main-hero-content-social-links" href="#">
+      <a class="site-tooltip main-hero-content-social-links" target="_blank" rel="noreferrer noopener nofollow"
+         href="<?= $this->options->github ?>" data-toggle="tooltip" data-placement="bottom" title=""
+         data-original-title="访问Github">
         <i class="fab fa-github"></i>
       </a>
     </div>
   </div>
 </section>
-
 <main class="main-content">
   <div class="container-sm">
     <?php while ($this->next()): ?>
@@ -89,7 +95,7 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
               <?php $this->category('/', false); ?>
             </div>
             <h3 class="post-card-content-title">
-              <a href="<?= $this->permalink; ?>" class="post-card-content-title-link"><?= $this->title; ?></a>
+              <a href="<?= $this->permalink; ?>" class="post-card-content-title-link"><?php $this->title(); ?></a>
             </h3>
             <p class="mb-3 mb-md-5 post-card-content-excerpt">
               <?php

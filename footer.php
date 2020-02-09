@@ -46,6 +46,9 @@ if (!empty($this->options->cdn) && $this->options->cdn) {
 </div>
 
 </div>
+<div class="toast-wrapper" aria-live="polite" aria-atomic="true">
+  <div class="toast-wrapper-list"></div>
+</div>
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
 <script type="text/javascript"

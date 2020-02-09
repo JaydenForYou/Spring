@@ -61,71 +61,69 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
     </div>
   </div>
 </section>
-
 <main class="main-content">
   <div class="container-sm">
     <?php while ($this->next()): ?>
-      <article class="row mb-3 mb-md-5 post-card home-post-item">
-        <div class="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-6 px-0<?php if ($this->sequence % 2 === 0) {
-          echo ' order-md-last';
-        } ?>">
-          <div class="post-card-image">
-            <div class="post-card-image-shadow"></div>
-            <a href="<?= $this->permalink; ?>" class="post-card-image-link<?php if ($this->sequence % 2 === 0) {
-              echo ' even';
-            } else {
-              echo ' odd';
-            } ?>">
-              <div class="post-card-image-link-background"
-                   style="background-image: url('<?php
-                   if ($this->fields->thumbnail) {
-                     echo $this->fields->thumbnail;
-                   } else {
-                     echo Utils::getThumbnail();
-                   }
-                   ?>')"></div>
-            </a>
-          </div>
+    <article class="row mb-3 mb-md-5 post-card home-post-item">
+      <div class="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-6 px-0<?php if ($this->sequence % 2 === 0) {
+        echo ' order-md-last';
+      } ?>">
+        <div class="post-card-image">
+          <div class="post-card-image-shadow"></div>
+          <a href="<?= $this->permalink; ?>" class="post-card-image-link<?php if ($this->sequence % 2 === 0) {
+            echo ' even';
+          } else {
+            echo ' odd';
+          } ?>">
+            <div class="post-card-image-link-background"
+                 style="background-image: url('<?php
+                 if ($this->fields->thumbnail) {
+                   echo $this->fields->thumbnail;
+                 } else {
+                   echo Utils::getThumbnail();
+                 }
+                 ?>')"></div>
+          </a>
         </div>
-        <div class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-6<?php if ($this->sequence % 2 === 0) {
-          echo ' order-md-first';
-        } ?>">
-          <div class="d-flex flex-column justify-content-center post-card-content">
-            <div class="text-center text-md-left mt-3 mt-md-0 post-card-content-tag">
-              <i class="fas fa-bookmark"></i>
-              <?php $this->category('/', false); ?>
+      </div>
+      <div class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-6<?php if ($this->sequence % 2 === 0) {
+        echo ' order-md-first';
+      } ?>">
+        <div class="d-flex flex-column justify-content-center post-card-content">
+          <div class="text-center text-md-left mt-3 mt-md-0 post-card-content-tag">
+            <i class="fas fa-bookmark"></i>
+            <?php $this->category('/', false); ?>
+          </div>
+          <h3 class="post-card-content-title">
+            <a href="<?= $this->permalink; ?>" class="post-card-content-title-link"><?php $this->title(); ?></a>
+          </h3>
+          <p class="mb-3 mb-md-5 post-card-content-excerpt">
+            <?php
+            if ($this->fields->previewContent)
+              $this->fields->previewContent();
+            else
+              $this->excerpt(55, '...');
+            ?>
+          </p>
+          <div class="d-flex align-items-center post-card-content-meta">
+            <div class="d-flex align-items-center mr-1 post-card-content-meta-authors">
+              <a href="<?= $this->author->permalink; ?>" class="post-card-content-meta-authors-link site-tooltip" data-toggle="tooltip"
+                 data-placement="top" title="<?php $this->author(); ?>">
+                <?php echo $this->author->gravatar(320, 'G', NULL, 'img-thumbnail rounded-circle post-card-content-meta-authors-link-avatar') ?>
+              </a>
             </div>
-            <h3 class="post-card-content-title">
-              <a href="<?= $this->permalink; ?>" class="post-card-content-title-link"><?= $this->title; ?></a>
-            </h3>
-            <p class="mb-3 mb-md-5 post-card-content-excerpt">
-              <?php
-              if ($this->fields->previewContent)
-                $this->fields->previewContent();
-              else
-                $this->excerpt(55, '...');
-              ?>
-            </p>
-            <div class="d-flex align-items-center post-card-content-meta">
-              <div class="d-flex align-items-center mr-1 post-card-content-meta-authors">
-                <a href="<?= $this->author->permalink; ?>" class="post-card-content-meta-authors-link site-tooltip"
-                   data-toggle="tooltip"
-                   data-placement="top" title="<?php $this->author(); ?>">
-                  <?php echo $this->author->gravatar(320, 'G', NULL, 'img-thumbnail rounded-circle post-card-content-meta-authors-link-avatar') ?>
-                </a>
+            <div class="d-flex flex-column align-items-start ml-1 post-card-content-meta-other">
+              <div class="post-card-content-meta-other-date">
+                <?= date('Y-m-d', $this->created) ?>
               </div>
-              <div class="d-flex flex-column align-items-start ml-1 post-card-content-meta-other">
-                <div class="post-card-content-meta-other-date">
-                  <?= date('Y-m-d', $this->created) ?>
-                </div>
-                <div class="post-card-content-meta-other-readtime">
-                  <?= getRate($this->text); ?>分钟阅读
-                </div>
+              <div class="post-card-content-meta-other-readtime">
+                <?= getRate($this->text); ?>分钟阅读
               </div>
             </div>
           </div>
         </div>
-      </article>
+      </div>
+    </article>
     <?php endwhile; ?>
   </div>
   <div class="container-sm">

@@ -43,7 +43,7 @@ if (!empty($this->options->cdn) && $this->options->cdn) {
   <div class="d-block d-lg-none d-xl-none sidebar-wrapper">
     <div class="sidebar-container">
       <div class="d-flex justify-content-between sidebar-header">
-        <div class="sidebar-title"><?=$this->options->title;?></div>
+        <div class="sidebar-title"><?= $this->options->title; ?></div>
         <div class="d-flex sidebar-right">
           <div class="d-flex align-items-center justify-content-center sidebar-search click-search">
             <i class="fas fa-search"></i>
@@ -83,7 +83,7 @@ if (!empty($this->options->cdn) && $this->options->cdn) {
           <a class="navbar-brand" href="/">
             <img src="https://getbootstrap.com/docs/4.4/assets/brand/bootstrap-solid.svg" width="30" height="30"
                  class="d-inline-block align-top navbar-brand-logo" alt="">
-            <?=$this->options->title;?>
+            <?= $this->options->title; ?>
           </a>
 
           <button class="navbar-toggler sidebar-toggler" type="button" data-toggle="collapse"
@@ -120,3 +120,4 @@ if (!empty($this->options->cdn) && $this->options->cdn) {
         </div>
       </nav>
     </header>
+
