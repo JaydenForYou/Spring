@@ -17,11 +17,11 @@
         <article class="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-9 px-0 borderbox post-content article-main">
           <?= Utils::getContent($this->content); ?>
         </article>
-          <div class="d-none d-sm-none d-md-block col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 px-0 article-toc-area">
-            <nav id="site-toc" data-toggle="toc" class="sticky-top article-toc-nav">
-              <div class="toc-title">文章目录：</div>
-            </nav>
-          </div>
+        <div class="d-none d-sm-none d-md-block col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 px-0 article-toc-area">
+          <nav id="site-toc" data-toggle="toc" class="sticky-top article-toc-nav">
+            <div class="toc-title">文章目录：</div>
+          </nav>
+        </div>
       </div>
       <section class="post-donation text-center w-100">
         <button type="button" class="btn btn-donation" data-toggle="collapse" data-target="#collapseDonation"
