@@ -120,4 +120,3 @@ if (!empty($this->options->cdn) && $this->options->cdn) {
         </div>
       </nav>
     </header>
-

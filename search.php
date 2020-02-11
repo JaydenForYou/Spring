@@ -60,7 +60,23 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
       </a>
     </div>
   </div>
+  <div class="main-hero-waves-area">
+    <svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+         viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave"
+              d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"/>
+      </defs>
+      <g class="parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0"/>
+        <use xlink:href="#gentle-wave" x="48" y="3"/>
+        <use xlink:href="#gentle-wave" x="48" y="5"/>
+        <use xlink:href="#gentle-wave" x="48" y="7"/>
+      </g>
+    </svg>
+  </div>
 </section>
+
 <main class="main-content">
   <div class="container-sm">
     <?php while ($this->next()): ?>
