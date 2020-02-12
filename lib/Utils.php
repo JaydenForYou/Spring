@@ -25,10 +25,10 @@ class Utils
     $enablePJAX = self::isEnabled('enablePJAX', 'JConfig');
 
     $THEME_CONFIG = json_encode((object)array(
-        "THEME_VERSION" => CREAMy_VERSION,
-        "SITE_URL" => rtrim($options->siteUrl, "/"),
-        "THEME_URL" => $options->themeUrl,
-        "ENABLE_Comments" => $enableComments
+      "THEME_VERSION" => CREAMy_VERSION,
+      "SITE_URL" => rtrim($options->siteUrl, "/"),
+      "THEME_URL" => $options->themeUrl,
+      "ENABLE_Comments" => $enableComments
     ));
 
     echo "<script>window.THEME_CONFIG = $THEME_CONFIG</script>\n";
@@ -57,15 +57,15 @@ class Utils
   public static function getBackground()
   {
     $options = Helper::options();
-    if(!null==$options->qiniu){
-      $qurl = str_replace($options->siteUrl,$options->qiniu.'/',$options->themeUrl);
-    }else{
+    if (!null == $options->qiniu) {
+      $qurl = str_replace($options->siteUrl, $options->qiniu . '/', $options->themeUrl);
+    } else {
       $qurl = $options->themeUrl;
     }
     if ($options->bgUrl) {
       echo $options->bgUrl;
     } else {
-      echo $qurl.'/assets/img/hero-background.jpg';
+      echo $qurl . '/assets/img/hero-background.jpg';
     }
   }
 
@@ -75,9 +75,9 @@ class Utils
   public static function getThumbnail()
   {
     $options = Helper::options();
-    if(!null==$options->qiniu){
-      $qurl = str_replace($options->siteUrl,$options->qiniu.'/',$options->themeUrl);
-    }else{
+    if (!null == $options->qiniu) {
+      $qurl = str_replace($options->siteUrl, $options->qiniu . '/', $options->themeUrl);
+    } else {
       $qurl = $options->themeUrl;
     }
     return $qurl . '/assets/img/post.jpg';
@@ -89,10 +89,10 @@ class Utils
   public static function getContent($content)
   {
     $options = Helper::options();
-    if(!null==$options->qiniu){
-      $site=$_SERVER['REQUEST_SCHEME'] . '://' .$_SERVER['HTTP_HOST'];
-      return str_replace($site,$options->qiniu,$content);
-    }else{
+    if (!null == $options->qiniu) {
+      $site = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'];
+      return str_replace($site, $options->qiniu, $content);
+    } else {
       return $content;
     }
   }
@@ -117,17 +117,17 @@ class Utils
     if (defined('__TYPECHO_GRAVATAR_PREFIX__')) {
       $url = __TYPECHO_GRAVATAR_PREFIX__;
     } else {
-      if ( !empty($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) !== 'off') {
-        $http_type='https';
-      } elseif ( isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https' ) {
-        $http_type='https';
-      } elseif ( !empty($_SERVER['HTTP_FRONT_END_HTTPS']) && strtolower($_SERVER['HTTP_FRONT_END_HTTPS']) !== 'off') {
-        $http_type='https';
+      if (!empty($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) !== 'off') {
+        $http_type = 'https';
+      } elseif (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
+        $http_type = 'https';
+      } elseif (!empty($_SERVER['HTTP_FRONT_END_HTTPS']) && strtolower($_SERVER['HTTP_FRONT_END_HTTPS']) !== 'off') {
+        $http_type = 'https';
       }
-      $http_type='http';
-      if($http_type=='https'){
+      $http_type = 'http';
+      if ($http_type == 'https') {
         $url = 'https://secure.gravatar.com';
-      }else{
+      } else {
         $url = 'http://www.gravatar.com';
       }
       $url .= '/avatar/';
@@ -142,50 +142,10 @@ class Utils
     return $url;
   }
 
-  /**
-   * 获取头部
-   */
-  public static function getHeader($csspath){
-    $options = Helper::options();
-    if(!empty($options->qiniu)){
-      $qurl = str_replace($options->siteUrl,$options->qiniu.'/',$options->themeUrl);
-    }else{
-      $qurl = $options->themeUrl;
-    }
-
-    if($csspath=='awesome'){
-      echo $qurl.'/assets/fonts/css/font-awesome.css';
-    }elseif($csspath=='bootstrap'){
-      echo $qurl.'/assets/bootstrap/bootstrap.css';
-    } elseif($csspath=='appmin'){
-      echo $qurl.'/assets/app/css/app.min.css?ver=1153';
-    }
-  }
-
-  /**
-   * 获取底部
-   */
-  public static function getFooter($jspath){
-    $options = Helper::options();
-    if(!empty($options->qiniu)){
-      $qurl = str_replace($options->siteUrl,$options->qiniu.'/',$options->themeUrl);
-    }else{
-      $qurl = $options->themeUrl;
-    }
-
-    if($jspath=='jquery'){
-      echo $qurl.'/assets/jquery/jquery.js';
-    }elseif($jspath=='bootstrapjs'){
-      echo $qurl.'/assets/bootstrap/bootstrap.js';
-    }elseif($jspath=='pivot'){
-      echo $qurl.'/assets/pivot/pivot.js';
-    }elseif($jspath=='appminjs'){
-      echo $qurl.'/assets/app/js/app.min.js?ver=1153';
-    }elseif($jspath=='demo'){
-      echo $qurl.'/demo.js';
-    }elseif($jspath=='lazyload'){
-      echo $qurl.'/assets/app/js/lazyload.js';
-    }
+  public static function getCategory($content)
+  {
+    $tmp = explode('$', $content);
+    return $tmp;
   }
 
 }

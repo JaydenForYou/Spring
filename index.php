@@ -30,35 +30,46 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
 ?>
 <section class="main-hero">
   <div class="main-hero-bg"
-       style="background-image: url('https://www.bing.com/th?id=OHR.Lunarnewyeareve2020_ZH-CN1514309048_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=HpEdgeAn')"></div>
+       style="background-image: url('<?php if ($this->getDescription() != null && !$this->is('index')) {
+         echo Utils::getCategory($this->getDescription())[1];
+       } else {
+         echo 'https://www.bing.com/th?id=OHR.Lunarnewyeareve2020_ZH-CN1514309048_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=HpEdgeAn';
+       } ?>')"></div>
   <div class="d-flex flex-column align-content-center justify-content-center main-hero-content">
-    <div class="text-center main-hero-content-avatar">
-      <img class="main-hero-content-avatar-img"
-           src="<?= $this->options->logoUrl ?>" alt="头像"/>
-    </div>
-    <div class="text-center main-hero-content-title"><?php $this->options->NickName(); ?></div>
-    <div class="text-center main-hero-content-description"><?= $this->options->bio ?></div>
-    <div class="text-center main-hero-content-social">
-      <a class="site-tooltip main-hero-content-social-links" target="_blank" rel="noreferrer noopener nofollow"
-         href="<?= $this->options->QQGROUP ?>" data-toggle="tooltip" data-placement="bottom" title=""
-         data-original-title="加入QQ群">
-        <i class="fab fa-qq"></i>
-      </a>
-      <a class="site-tooltip main-hero-content-social-links" href="#" data-toggle="tooltip" data-placement="bottom"
-         title="" data-original-title="暂无信息">
-        <i class="fab fa-weixin"></i>
-      </a>
-      <a class="site-tooltip main-hero-content-social-links" target="_blank" rel="noreferrer noopener nofollow"
-         href="<?= $this->options->weibo ?>" data-toggle="tooltip" data-placement="bottom" title=""
-         data-original-title="访问微博">
-        <i class="fab fa-weibo"></i>
-      </a>
-      <a class="site-tooltip main-hero-content-social-links" target="_blank" rel="noreferrer noopener nofollow"
-         href="<?= $this->options->github ?>" data-toggle="tooltip" data-placement="bottom" title=""
-         data-original-title="访问Github">
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
+    <?php if ($this->is('index')): ?>
+      <div class="text-center main-hero-content-avatar">
+        <img class="main-hero-content-avatar-img"
+             src="<?= $this->options->logoUrl ?>" alt="头像"/>
+      </div>
+      <div class="text-center main-hero-content-title"><?php $this->options->NickName(); ?></div>
+      <div class="text-center main-hero-content-description"><?= $this->options->bio ?></div>
+      <div class="text-center main-hero-content-social">
+        <a class="site-tooltip main-hero-content-social-links" target="_blank" rel="noreferrer noopener nofollow"
+           href="<?= $this->options->QQGROUP ?>" data-toggle="tooltip" data-placement="bottom" title=""
+           data-original-title="加入QQ群">
+          <i class="fab fa-qq"></i>
+        </a>
+        <a class="site-tooltip main-hero-content-social-links" href="#" data-toggle="tooltip" data-placement="bottom"
+           title="" data-original-title="暂无信息">
+          <i class="fab fa-weixin"></i>
+        </a>
+        <a class="site-tooltip main-hero-content-social-links" target="_blank" rel="noreferrer noopener nofollow"
+           href="<?= $this->options->weibo ?>" data-toggle="tooltip" data-placement="bottom" title=""
+           data-original-title="访问微博">
+          <i class="fab fa-weibo"></i>
+        </a>
+        <a class="site-tooltip main-hero-content-social-links" target="_blank" rel="noreferrer noopener nofollow"
+           href="<?= $this->options->github ?>" data-toggle="tooltip" data-placement="bottom" title=""
+           data-original-title="访问Github">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+    <? else: ?>
+      <div class="text-center main-hero-content-title"><?php $this->category('', false); ?></div>
+      <?php if($this->getDescription() != null):?><div class="text-center main-hero-content-description"><?= Utils::getCategory($this->getDescription())[0] ?></div><?php endif ?>
+      <div class="text-center main-hero-content-description">该分类下有<?php echo Utils::getCnums($this->category) ?>篇文章
+      </div>
+    <?php endif ?>
   </div>
   <div class="main-hero-waves-area">
     <svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
