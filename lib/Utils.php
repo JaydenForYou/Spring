@@ -104,6 +104,9 @@ class Utils
   {
     $db = Typecho_Db::get();
     $cx = $db->fetchRow($db->select()->from('table.metas')->where('table.metas.type = ?', 'category')->where('table.metas.slug = ?', $name))['count'];
+    if($cx <= 0){
+      return 0;
+    }
     return $cx;
   }
 
@@ -142,10 +145,22 @@ class Utils
     return $url;
   }
 
-  public static function getCategory($content)
+  public static function getCategoryCount($content)
   {
     $tmp = explode('$', $content);
     return $tmp;
+  }
+
+  public static function getSkey($key) {
+    $tmp = explode('/search/',$key);
+    $tmp = str_replace('/','',$tmp);
+    return $tmp[1];
+  }
+
+  public static function getCagegoryName($slug) {
+    $db = Typecho_Db::get();
+    $name = $db->fetchRow($db->select()->from('table.metas')->where('table.metas.type = ?', 'category')->where('table.metas.slug = ?', $slug))['name'];
+    return $name;
   }
 
 }

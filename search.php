@@ -30,35 +30,45 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
 ?>
 <section class="main-hero">
   <div class="main-hero-bg"
-       style="background-image: url('https://www.bing.com/th?id=OHR.Lunarnewyeareve2020_ZH-CN1514309048_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=HpEdgeAn')"></div>
+       style="background-image: url('<?=$this->options->bgUrl;?>')"></div>
   <div class="d-flex flex-column align-content-center justify-content-center main-hero-content">
-    <div class="text-center main-hero-content-avatar">
-      <img class="main-hero-content-avatar-img"
-           src="<?= $this->options->logoUrl ?>" alt="头像"/>
-    </div>
-    <div class="text-center main-hero-content-title"><?php $this->options->NickName(); ?></div>
-    <div class="text-center main-hero-content-description"><?= $this->options->bio ?></div>
-    <div class="text-center main-hero-content-social">
-      <a class="site-tooltip main-hero-content-social-links" target="_blank" rel="noreferrer noopener nofollow"
-         href="<?= $this->options->QQGROUP ?>" data-toggle="tooltip" data-placement="bottom" title=""
-         data-original-title="加入QQ群">
-        <i class="fab fa-qq"></i>
-      </a>
-      <a class="site-tooltip main-hero-content-social-links" href="#" data-toggle="tooltip" data-placement="bottom"
-         title="" data-original-title="暂无信息">
-        <i class="fab fa-weixin"></i>
-      </a>
-      <a class="site-tooltip main-hero-content-social-links" target="_blank" rel="noreferrer noopener nofollow"
-         href="<?= $this->options->weibo ?>" data-toggle="tooltip" data-placement="bottom" title=""
-         data-original-title="访问微博">
-        <i class="fab fa-weibo"></i>
-      </a>
-      <a class="site-tooltip main-hero-content-social-links" target="_blank" rel="noreferrer noopener nofollow"
-         href="<?= $this->options->github ?>" data-toggle="tooltip" data-placement="bottom" title=""
-         data-original-title="访问Github">
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
+      <div class="text-center main-hero-content-avatar">
+        <img class="main-hero-content-avatar-img"
+             src="<?= $this->options->logoUrl ?>" alt="头像"/>
+      </div>
+      <div class="text-center main-hero-content-title"><?php $this->options->NickName(); ?></div>
+      <div class="text-center main-hero-content-description"><?= $this->options->bio ?></div>
+      <div class="text-center main-hero-content-social">
+        <a class="site-tooltip main-hero-content-social-links" target="_blank" rel="noreferrer noopener nofollow"
+           href="<?= $this->options->QQGROUP ?>" data-toggle="tooltip" data-placement="bottom" title=""
+           data-original-title="加入QQ群">
+          <i class="fab fa-qq"></i>
+        </a>
+        <a class="site-tooltip main-hero-content-social-links" href="#" data-toggle="tooltip" data-placement="bottom"
+           title="" data-original-title="暂无信息">
+          <i class="fab fa-weixin"></i>
+        </a>
+        <a
+          class="site-popover main-hero-content-social-links"
+          href="#"
+          data-container=".site-wrapper"
+          data-toggle="popover"
+          data-placement="bottom"
+          data-trigger="hover"
+          data-content="<div class='hero-social-wechat'><img src='<?php if ($this->options->wpay != null) {
+            echo $this->options->wpay;
+          } else {
+            echo 'https://ae01.alicdn.com/kf/He5dccc6dc2d945f184c14f6bed323a4fI.png';
+          } ?>' alt='微信二维码'/></div>"
+        >
+          <i class="fab fa-weibo"></i>
+        </a>
+        <a class="site-tooltip main-hero-content-social-links" target="_blank" rel="noreferrer noopener nofollow"
+           href="<?= $this->options->github ?>" data-toggle="tooltip" data-placement="bottom" title=""
+           data-original-title="访问Github">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
   </div>
   <div class="main-hero-waves-area">
     <svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -80,7 +90,7 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
 <main class="main-content">
   <div class="container-sm">
     <?php while ($this->next()): ?>
-      <article class="row mb-3 mb-md-5 post-card home-post-item">
+      <article class="row mb-3 my-md-5 post-card home-post-item">
         <div class="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-6 px-0<?php if ($this->sequence % 2 === 0) {
           echo ' order-md-last';
         } ?>">
@@ -171,7 +181,7 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
     </div>
   <?php else: ?>
     <div class="container-sm">
-      <p style="text-align: center"><strong>WHAT ARE YOU LOOKING FOR?</strong></p>
+      <p style="text-align: center"><strong>搜索不到关键字为<?=Utils::getSkey($_SERVER['PHP_SELF']);?>的文章</strong></p>
     </div>
   <?php endif ?>
 </main>

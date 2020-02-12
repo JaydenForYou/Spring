@@ -7,7 +7,7 @@
     <div class="text-center main-hero-content-title"><?= $this->title; ?></div>
     <div class="text-center main-hero-content-description"><?php $this->author(); ?>
       / <?= date('Y-m-d', $this->created) ?>
-      / <?= getCategory($this)['category'] ?></div>
+      / <?= getCategory($this)['category'] ?> / 阅读量：<?php get_post_view($this) ?></div>
   </div>
   <div class="main-hero-header"></div>
 </section>
@@ -20,7 +20,6 @@
       </article>
       <div class="d-none d-sm-none d-md-block col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 px-0 article-toc-area">
         <nav id="site-toc" data-toggle="toc" class="sticky-top article-toc-nav">
-          <div class="toc-title">文章目录：</div>
         </nav>
       </div>
     </div>
