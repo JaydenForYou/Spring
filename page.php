@@ -14,7 +14,7 @@
 <main class="main-content">
   <div class="container-sm">
     <div class="row post-content-main">
-      <article class="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-9 px-0 borderbox post-content article-main">
+      <article class="col-12 col-sm-12 px-0 borderbox post-content article-main">
         <?= Utils::getContent($this->content); ?>
       </article>
   </div>

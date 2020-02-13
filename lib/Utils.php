@@ -104,7 +104,7 @@ class Utils
   {
     $db = Typecho_Db::get();
     $cx = $db->fetchRow($db->select()->from('table.metas')->where('table.metas.type = ?', 'category')->where('table.metas.slug = ?', $name))['count'];
-    if($cx <= 0){
+    if ($cx <= 0) {
       return 0;
     }
     return $cx;
@@ -151,16 +151,43 @@ class Utils
     return $tmp;
   }
 
-  public static function getSkey($key) {
-    $tmp = explode('/search/',$key);
-    $tmp = str_replace('/','',$tmp);
+  public static function getSkey($key)
+  {
+    $tmp = explode('/search/', $key);
+    $tmp = str_replace('/', '', $tmp);
     return $tmp[1];
   }
 
-  public static function getCagegoryName($slug) {
+  public static function getCagegoryName($slug)
+  {
     $db = Typecho_Db::get();
     $name = $db->fetchRow($db->select()->from('table.metas')->where('table.metas.type = ?', 'category')->where('table.metas.slug = ?', $slug))['name'];
     return $name;
+  }
+
+  public static function praseLink($content)
+  {
+    $pattern = "~\[link\](.*)\[\/link\]~";
+    preg_match_all($pattern, $content, $tmp);
+    $tmp = explode("[info]", $tmp[1][0]);
+    $arr = array();
+    foreach ($tmp as $key => $v) {
+      if (strlen($v) > 4) {
+        $tmp = explode('$', $v);
+        $p = "~<a href=\"(.*)\">(.*)</a>~";
+        preg_match($p, $tmp[2], $a);
+        $tmp[2] = $a[1];
+        $arr[$key] = $tmp;
+      }
+    }
+    return $arr;
+  }
+
+  public static function praseContent($content)
+  {
+    $pattern = "~\[link\](.*)\[\/link\]~";
+    $tmp = preg_replace($pattern, '', $content);
+    return $tmp;
   }
 
 }
