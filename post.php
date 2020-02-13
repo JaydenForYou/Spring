@@ -7,7 +7,7 @@
     <div class="text-center main-hero-content-title"><?= $this->title; ?></div>
     <div class="text-center main-hero-content-description"><?php $this->author(); ?>
       / <?= date('Y-m-d', $this->created) ?>
-      / <?= getCategory($this)['category'] ?> / 阅读量：<?php get_post_view($this) ?></div>
+      / <?= getCategory($this)['category'] ?> / 阅读量 <?php get_post_view($this) ?></div>
   </div>
   <div class="main-hero-header"></div>
 </section>
