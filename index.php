@@ -16,7 +16,9 @@ $hidden = '';
 $page = '';
 if ($this->is('index')) {
   $page = "/index.php/page/";
-} else {
+} elseif($this->is('author')) {
+  $page = $this->author->permalink;
+}else{
   $page = preg_replace("/\/\d+/u",'',$_SERVER['PHP_SELF']);
 }
 $prev = $this->_currentPage - 1;

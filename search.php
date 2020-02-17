@@ -4,7 +4,8 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 $this->need('header.php');
 $hiddens = '';
 $hidden = '';
-$page = preg_replace("/\/\d+/u",'',$_SERVER['PHP_SELF']);
+preg_match("/search\/(.*?)\/\d+/",$_SERVER['PHP_SELF'],$key);
+$page = preg_replace("~search/(.*?)\d+~",'search/'.$key[1],$_SERVER['PHP_SELF']);
 $prev = $this->_currentPage - 1;
 $next = $this->_currentPage + 1;
 if ($this->_currentPage == 0 || $this->_currentPage == 1) {
