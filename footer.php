@@ -16,7 +16,7 @@ if (!empty($this->options->cdn) && $this->options->cdn) {
   <div
     class="container d-flex flex-wrap-reverse justify-content-md-between justify-content-center text-center main-footer-audit">
     <p>
-      <?php if (!null == $this->options->beian): ?><a href="http://www.miitbeian.gov.cn" target="_blank"
+      <?php if (!null == $this->options->beian): ?><a href="http://www.beian.miit.gov.cn/" target="_blank"
                                                       rel="nofollow noopener"><?php echo $this->options->beian ?></a><?php endif ?>
     </p>
   </div>
