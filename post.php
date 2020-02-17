@@ -52,7 +52,7 @@
             <?php if ($this->options->alipay != null): ?>
               <div class="col-sm">
                 <figure class="figure">
-                  <img src="<?php $this->options->alipay; ?>" alt="支付宝捐赠" title="请使用支付宝扫一扫进行捐赠">
+                  <img src="<?= $this->options->alipay; ?>" alt="支付宝捐赠" title="请使用支付宝扫一扫进行捐赠">
                   <figcaption class="figure-caption">请使用支付宝扫一扫进行捐赠</figcaption>
                 </figure>
               </div>
@@ -60,7 +60,7 @@
             <?php if ($this->options->wpay != null): ?>
               <div class="col-sm">
                 <figure class="figure">
-                  <img src="<?php $this->options->wpay; ?>" alt="微信捐赠" title="请使用微信扫一扫进行赞赏">
+                  <img src="<?= $this->options->wpay; ?>" alt="微信捐赠" title="请使用微信扫一扫进行赞赏">
                   <figcaption class="figure-caption">请使用微信扫一扫进行赞赏</figcaption>
                 </figure>
               </div>
