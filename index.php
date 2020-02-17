@@ -185,7 +185,7 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
           </span>
               </a>
             </li>
-            <li class="page-item"><a class="page-link">第<?= $cpage ?>
+            <li class="page-item"><a class="page-link">第 <?= $cpage ?>
                 页，共<?php echo ceil($this->getTotal() / $this->parameter->pageSize); ?>页</a></li>
             <li class="page-item" <?php echo $hiddens ?>>
               <a class="page-link" href="<?= $page . $next ?>" aria-label="下一页">

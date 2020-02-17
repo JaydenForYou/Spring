@@ -1,18 +1,10 @@
 <?php
-/**
- * 响应式TYPECHO主题
- *
- * @package Spring
- * @author 林尽欢
- * @version 1.0.1
- * @link https://iobiji.com
- */
-
 if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 <?php
 $this->need('header.php');
 $hiddens = '';
 $hidden = '';
+$page = preg_replace("/\/\d+/u",'',$_SERVER['PHP_SELF']);
 $prev = $this->_currentPage - 1;
 $next = $this->_currentPage + 1;
 if ($this->_currentPage == 0 || $this->_currentPage == 1) {
@@ -159,16 +151,16 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
         <nav aria-label="文章分页">
           <ul class="mb-0 pagination">
             <li class="page-item" <?php echo $hidden ?>>
-              <a class="page-link" href="/index.php/page/<?php echo $prev ?>" aria-label="上一页">
+              <a class="page-link" href="<?= $page . $prev ?>" aria-label="上一页">
           <span aria-hidden="true">
             <i class="fas fa-angle-left"></i>
           </span>
               </a>
             </li>
-            <li class="page-item"><a class="page-link">第<?= $cpage ?>
+            <li class="page-item"><a class="page-link">第 <?= $cpage ?>
                 页，共<?php echo ceil($this->getTotal() / $this->parameter->pageSize); ?>页</a></li>
             <li class="page-item" <?php echo $hiddens ?>>
-              <a class="page-link" href="/index.php/page/<?php echo $next ?>" aria-label="下一页">
+              <a class="page-link" href="<?= $page . $next ?>" aria-label="下一页">
           <span aria-hidden="true">
             <i class="fas fa-angle-right"></i>
           </span>
