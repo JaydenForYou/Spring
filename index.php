@@ -14,11 +14,7 @@ $this->need('header.php');
 $hiddens = '';
 $hidden = '';
 $page = '';
-if ($this->is('index')) {
-  $page = "/index.php/page/";
-} else {
-  $page = preg_replace("/\/\d+/u",'',$_SERVER['PHP_SELF']);
-}
+$page = preg_replace("/\/\d+/u",'',$_SERVER['PHP_SELF']);
 $prev = $this->_currentPage - 1;
 $next = $this->_currentPage + 1;
 if ($this->_currentPage == 0 || $this->_currentPage == 1) {
