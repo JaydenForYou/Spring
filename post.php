@@ -74,7 +74,7 @@
         <strong>文章作者： </strong>
         <?php $this->author(); ?>
       </li>
-      <li class="post-copyright-link">
+      <li class="post-copyright-link aline">
         <strong>文章链接：</strong>
         <a href="<?= $this->permalink; ?>" title="<?= $this->title; ?>"><?= $this->permalink; ?></a>
       </li>
@@ -84,7 +84,7 @@
         许可协议。转载请注明出处！
       </li>
     </ul>
-    <section class="d-flex justify-content-between align-items-center mx-3 mx-sm-0 post-author-footer">
+    <section class="d-flex justify-content-between align-items-center post-author-footer">
       <section class="author-card d-flex justify-content-between align-items-center">
         <?php echo $this->author->gravatar(320, 'G', NULL, 'author-profile-image') ?>
         <section class="author-card-content">
@@ -99,7 +99,7 @@
       </div>
     </section>
     <?php if (posts($this) != false || thePrev($this) != false || theNext($this) != false): ?>
-      <aside class="post-read-more mx-3 mx-sm-0">
+      <aside class="post-read-more">
         <div class="row read-next-feed">
           <div class="col-lg px-0 px-sm-3 d-flex min-h-300 post-read-more-item">
             <article class="read-next-card"
