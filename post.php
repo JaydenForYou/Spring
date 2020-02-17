@@ -23,7 +23,7 @@
         </nav>
       </div>
     </div>
-    <section class="post-donation text-center w-100">
+    <section class="post-tools text-center w-100">
       <button
         type="button"
         class="btn site-popover btn-tools-item btn-share btn-share-popover"
