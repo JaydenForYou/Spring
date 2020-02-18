@@ -18,7 +18,7 @@ if ($this->is('index')) {
   $page = "/index.php/page/";
 } elseif($this->is('author')) {
   $page = $this->author->permalink;
-}else{
+} elseif($this->is('category')) {
   $page = preg_replace("/\/\d+/u",'',$_SERVER['PHP_SELF']);
 }
 $prev = $this->_currentPage - 1;
