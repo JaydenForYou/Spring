@@ -56,12 +56,13 @@ $this->need('header.php');
   }
   .about-me-home .about-me__side--back {
     transform: rotateY(180deg);
-    background-color: #1c1c1c;
+    background: linear-gradient(45deg, #101010, #2c3e50);
     z-index: 0;
   }
   .about-me-home .about-me__cont {
     height: 15rem;
     background: linear-gradient(45deg, #101010, #2c3e50);
+    color: white;
     font-family: Consolas, "Lucida Console", monospace;
     display: flex;
     align-items: center;

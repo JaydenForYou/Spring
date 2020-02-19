@@ -16,10 +16,14 @@ $hidden = '';
 $page = '';
 if ($this->is('index')) {
   $page = "/index.php/page/";
-} elseif($this->is('author')) {
+} elseif ($this->is('author')) {
   $page = $this->author->permalink;
-} elseif($this->is('category')) {
-  $page = preg_replace("/\/\d+/u",'',$_SERVER['PHP_SELF']);
+} elseif ($this->is('category')) {
+  $url = $_SERVER['PHP_SELF'];
+  if (empty($url)) {
+    $url = $_SERVER['REQUEST_URI'];
+  }
+  $page = preg_replace("/\/\d+/u", '', $url);
 }
 $prev = $this->_currentPage - 1;
 $next = $this->_currentPage + 1;
