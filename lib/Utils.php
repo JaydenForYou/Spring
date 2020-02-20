@@ -198,4 +198,27 @@ class Utils
     return $postnum;
   }
 
+  public static function getAuthor($data)
+  {
+    $tmp = explode('$', $data);
+    $arr['site'] = $tmp[0];
+    $arr['bio'] = $tmp[1];
+    $arr['location'] = $tmp[2];
+    return $arr;
+  }
+
+  public static function getGravatar($email, $s = 96, $d = 'mp', $r = 'g', $img = false, $atts = array())
+  {
+    $url = '//cdn.v2ex.com/gravatar/';
+    $url .= md5(strtolower(trim($email)));
+    $url .= "?s=$s&d=$d&r=$r";
+    if ($img) {
+      $url = '<img src="' . $url . '"';
+      foreach ($atts as $key => $val)
+        $url .= ' ' . $key . '="' . $val . '"';
+      $url .= ' />';
+    }
+    return $url;
+  }
+
 }

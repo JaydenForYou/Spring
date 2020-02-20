@@ -91,7 +91,35 @@
           <h4 class="author-card-name">
             <a href="<?= $this->author->permalink; ?>"><?php $this->author(); ?></a>
           </h4>
-          <p><?= $this->options->bio ?></p>
+          <div class="author-card-social">
+            <a class="site-tooltip author-card-social-links" target="_blank" rel="noreferrer noopener nofollow"
+               href="<?= $this->options->QQGROUP ?>" data-toggle="tooltip" data-placement="top" title="QQ">
+              <i class="fab fa-qq"></i>
+            </a>
+            <a class="site-popover author-card-social-links"
+               href="<?php if ($this->options->wpay != null) {
+                 echo $this->options->wpay;
+               } else {
+                 echo 'https://ae01.alicdn.com/kf/He5dccc6dc2d945f184c14f6bed323a4fI.png';
+               } ?>"
+               data-container=".site-wrapper"
+               data-toggle="popover"
+               data-placement="top"
+               data-trigger="hover"
+               data-content="<div class='hero-social-wechat'><img src='https://img.alicdn.com/imgextra/i4/2038135983/O1CN011u4G8M87EOv3N6Q_!!2038135983.jpg' alt='微信二维码'/></div>"
+            >
+              <i class="fab fa-weixin"></i>
+            </a>
+            <a class="site-tooltip author-card-social-links" target="_blank" rel="noreferrer noopener nofollow"
+               href="<?= $this->options->weibo ?>" data-toggle="tooltip" data-placement="top" title="WeiBo">
+              <i class="fab fa-weibo"></i>
+            </a>
+            <a class="site-tooltip author-card-social-links" target="_blank" rel="noreferrer noopener nofollow"
+               href="<?= $this->options->github ?>" data-toggle="tooltip" data-placement="top" title="Github">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+          <p><?=Utils::getAuthor($this->author->url)['bio']?></p>
         </section>
       </section>
       <div class="post-footer-right">

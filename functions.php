@@ -347,7 +347,6 @@ function themeConfig($form)
     <p>感谢选择使用 <code>Spring</code> </p>
     <p><a href="https://github.com/JaydenForYou/Spring/issues">issue</a></p>
 </div>';
-  $logoUrl = new Typecho_Widget_Helper_Form_Element_Text('logoUrl', NULL, 'https://ae01.alicdn.com/kf/Hcc6e25cb04934a58838717d25517231fe.jpg', _t('站点 LOGO 地址'), _t('头像Logo'));
   $bgUrl = new Typecho_Widget_Helper_Form_Element_Text('bgUrl', NULL, 'https://www.bing.com/th?id=OHR.Lunarnewyeareve2020_ZH-CN1514309048_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=HpEdgeAn', _t('首页背景图片'), _t('在这里填入一个图片 URL 地址'));
   $Gravatar = new Typecho_Widget_Helper_Form_Element_Text('Gravatar', NULL, NULL, _t('自定义 Gravatar 源'), _t('输入Gravatar源，如https://cdn.v2ex.com/gravatar/'));
   $cdn = new Typecho_Widget_Helper_Form_Element_Text('cdn', NULL, NULL, _t('使用自己的静态存储'), _t('输入静态存储链接(不需要带http/https)'));
@@ -357,18 +356,13 @@ function themeConfig($form)
   $weibo = new Typecho_Widget_Helper_Form_Element_Text('weibo', NULL, '#', _t('微博地址'), _t('输入微博地址'));
   $beian = new Typecho_Widget_Helper_Form_Element_Text('beian', NULL, NULL, _t('ICP备案号'), _t(''));
   $Subtitle = new Typecho_Widget_Helper_Form_Element_Text('Subtitle', NULL, NULL, _t('站点副标题'), _t(''));
-  $NickName = new Typecho_Widget_Helper_Form_Element_Text('NickName', NULL, 'Spring', _t('首页头像下的名称'), _t(''));
-  $bio = new Typecho_Widget_Helper_Form_Element_Text('bio', NULL, '我最不喜欢做选择，但我选择了，就一定不后悔。', _t('首页头像下的谏言'), _t(''));
   $alipay = new Typecho_Widget_Helper_Form_Element_Text('alipay', NULL, NULL, _t('支付宝收款二维码链接'), _t(''));
   $wpay = new Typecho_Widget_Helper_Form_Element_Text('wpay', NULL, NULL, _t('微信收款二维码链接'), _t(''));
   $qiniu = new Typecho_Widget_Helper_Form_Element_Text('qiniu', NULL, NULL, _t('七牛云替换全站镜像'), _t('需要带http/https'));
   $github = new Typecho_Widget_Helper_Form_Element_Text('github', NULL, '#', _t('GITHUB'), _t(''));
   $QQGROUP = new Typecho_Widget_Helper_Form_Element_Text('QQGROUP', NULL, '#', _t('QQ群链接'), _t(''));
-  $form->addInput($logoUrl);
   $form->addInput($bgUrl);
   $form->addInput($Subtitle);
-  $form->addInput($NickName);
-  $form->addInput($bio);
   $form->addInput($beian);
   $form->addInput($qiniu);
   $form->addInput($weibo);

@@ -51,14 +51,14 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
     <?php if ($this->is('author')): ?>
       <div class="text-center main-hero-content-avatar">
         <img class="main-hero-content-avatar-img"
-             src="<?= $this->options->logoUrl ?>" alt="头像"/>
+             src="<?= Utils::getGravatar($this->author->mail) ?>" alt="头像"/>
       </div>
-      <div class="text-center main-hero-content-title"><?php $this->options->NickName(); ?></div>
-      <div class="text-center main-hero-content-description"><?= $this->options->bio ?></div>
+      <div class="text-center main-hero-content-title"><?php $this->author(); ?></div>
+      <div class="text-center main-hero-content-description"><?=Utils::getAuthor($this->author->url)['bio']?></div>
       <div class="text-center main-hero-content-description">
-        <i class="fas fa-map-marker-alt"></i> 广东 广州
+        <i class="fas fa-map-marker-alt"></i> <?=Utils::getAuthor($this->author->url)['location']?>
         <span class="date-divider"></span>
-        <i class="fas fa-poll-h"></i> <?=Utils::getAuthorPosts($this->author->uid)?> 篇文章
+        <i class="fas fa-poll-h"></i> <?= Utils::getAuthorPosts($this->author->uid) ?> 篇文章
       </div>
       <div class="text-center main-hero-content-social">
         <a class="site-tooltip main-hero-content-social-links" target="_blank" rel="noreferrer noopener nofollow"
@@ -92,7 +92,7 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
           <i class="fab fa-github"></i>
         </a>
         <a class="site-tooltip main-hero-content-social-links" target="_blank" rel="noreferrer noopener nofollow"
-           href="<?= $this->author->url() ?>" data-toggle="tooltip" data-placement="bottom" title=""
+           href="<?=Utils::getAuthor($this->author->url)['site']?>" data-toggle="tooltip" data-placement="bottom" title=""
            data-original-title="个人地址">
           <i class="fas fa-globe-asia"></i>
         </a>
