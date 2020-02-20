@@ -48,13 +48,18 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
          echo $this->options->bgUrl;
        } ?>')"></div>
   <div class="d-flex flex-column align-content-center justify-content-center main-hero-content">
-    <?php if ($this->is('index') || $this->is('author')): ?>
+    <?php if ($this->is('author')): ?>
       <div class="text-center main-hero-content-avatar">
         <img class="main-hero-content-avatar-img"
              src="<?= $this->options->logoUrl ?>" alt="头像"/>
       </div>
       <div class="text-center main-hero-content-title"><?php $this->options->NickName(); ?></div>
       <div class="text-center main-hero-content-description"><?= $this->options->bio ?></div>
+      <div class="text-center main-hero-content-description">
+        <i class="fas fa-map-marker-alt"></i> 广东 广州
+        <span class="date-divider"></span>
+        <i class="fas fa-poll-h"></i> <?=Utils::getAuthorPosts($this->author->uid)?> 篇文章
+      </div>
       <div class="text-center main-hero-content-social">
         <a class="site-tooltip main-hero-content-social-links" target="_blank" rel="noreferrer noopener nofollow"
            href="<?= $this->options->QQGROUP ?>" data-toggle="tooltip" data-placement="bottom" title=""
@@ -86,6 +91,11 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
            data-original-title="访问Github">
           <i class="fab fa-github"></i>
         </a>
+        <a class="site-tooltip main-hero-content-social-links" target="_blank" rel="noreferrer noopener nofollow"
+           href="<?= $this->author->url() ?>" data-toggle="tooltip" data-placement="bottom" title=""
+           data-original-title="个人地址">
+          <i class="fas fa-globe-asia"></i>
+        </a>
       </div>
     <?php elseif ($this->is('category')): ?>
       <div class="text-center main-hero-content-title"><?= $this->category('', false) ?></div>
@@ -93,6 +103,15 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
         <div
           class="text-center main-hero-content-description"><?= Utils::getCategoryCount($this->getDescription())[0] ?></div><?php endif ?>
       <div class="text-center main-hero-content-description">该分类下有<?= Utils::getCnums($this->category) ?>篇文章
+      </div>
+    <?php elseif ($this->is('index')): ?>
+      <div class="d-flex flex-column align-content-center justify-content-center main-hero-content">
+        <div class="text-left mx-auto main-hero-content-description home-sentence-content">
+          永远年轻，永远热泪盈眶！
+        </div>
+        <div class="text-right mx-auto main-hero-content-description home-sentence-title">
+          《达摩流浪者》
+        </div>
       </div>
     <?php endif ?>
   </div>
