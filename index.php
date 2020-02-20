@@ -98,7 +98,9 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
         </a>
       </div>
     <?php elseif ($this->is('category')): ?>
-      <div class="text-center main-hero-content-title"><?= $this->category('', false) ?></div>
+      <div class="text-center main-hero-content-title"><?php $this->archiveTitle(array(
+          'category' => _t('%s')
+        ), '', ''); ?></div>
       <?php if ($this->getDescription() != null): ?>
         <div
           class="text-center main-hero-content-description"><?= Utils::getCategoryCount($this->getDescription())[0] ?></div><?php endif ?>
