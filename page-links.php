@@ -63,6 +63,7 @@ $this->need('header.php');
     <div class="row post-content-main">
       <article
         class="col-12 col-sm-12 px-0 borderbox post-content article-main custom-links-template page">
+        <h2 id="Links">友链</h2>
         <ul>
           <?php foreach (Utils::praseLink($this->content) as $v) { ?>
             <li class="shadow">
