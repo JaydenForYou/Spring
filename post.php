@@ -97,16 +97,16 @@
               <i class="fab fa-qq"></i>
             </a>
             <a class="site-popover author-card-social-links"
-               href="<?php if ($this->options->wpay != null) {
-                 echo $this->options->wpay;
-               } else {
-                 echo 'https://ae01.alicdn.com/kf/He5dccc6dc2d945f184c14f6bed323a4fI.png';
-               } ?>"
+               href="#"
                data-container=".site-wrapper"
                data-toggle="popover"
                data-placement="top"
                data-trigger="hover"
-               data-content="<div class='hero-social-wechat'><img src='https://img.alicdn.com/imgextra/i4/2038135983/O1CN011u4G8M87EOv3N6Q_!!2038135983.jpg' alt='微信二维码'/></div>"
+               data-content="<div class='hero-social-wechat'><img src='<?php if ($this->options->wpay != null) {
+                 echo $this->options->wpay;
+               } else {
+                 echo 'https://ae01.alicdn.com/kf/He5dccc6dc2d945f184c14f6bed323a4fI.png';
+               } ?>' alt='微信二维码'/></div>"
             >
               <i class="fab fa-weixin"></i>
             </a>
