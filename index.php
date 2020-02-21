@@ -107,20 +107,8 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
       <div class="text-center main-hero-content-description">该分类下有<?= Utils::getCnums($this->category) ?>篇文章
       </div>
     <?php elseif ($this->is('index')): ?>
-      <div class="text-left mx-auto main-hero-content-description home-sentence-content">
-        永远年轻，永远热泪盈眶！
-      </div>
-      <div class="d-flex justify-content-between align-items-center mx-auto main-hero-content-description home-sentence-title">
-        <div class="home-sentence-title-left">
-          <button type="button" class="btn btn-sm btn-outline-secondary home-sentence-title-left-prev">
-            <i class="fas fa-chevron-left"></i>
-          </button>
-          <button type="button" class="btn btn-sm btn-outline-secondary home-sentence-title-left-next">
-            <i class="fas fa-chevron-right"></i>
-          </button>
-        </div>
-        <div class="home-sentence-title-right">《达摩流浪者》</div>
-      </div>
+      <div class="text-center main-hero-content-title"><?=$this->options->ititle?></div>
+      <div class="text-center main-hero-content-description home-sentence">我最不喜欢做选择，但我选择了，就一定不后悔。</div>
     <?php endif ?>
   </div>
   <div class="main-hero-waves-area">

@@ -361,7 +361,9 @@ function themeConfig($form)
   $qiniu = new Typecho_Widget_Helper_Form_Element_Text('qiniu', NULL, NULL, _t('七牛云替换全站镜像'), _t('需要带http/https'));
   $github = new Typecho_Widget_Helper_Form_Element_Text('github', NULL, '#', _t('GITHUB'), _t(''));
   $QQGROUP = new Typecho_Widget_Helper_Form_Element_Text('QQGROUP', NULL, '#', _t('QQ群链接'), _t(''));
+  $ititle = new Typecho_Widget_Helper_Form_Element_Text('ititle', NULL, '首页标题', _t('首页标题'), _t(''));
   $form->addInput($bgUrl);
+  $form->addInput($ititle);
   $form->addInput($Subtitle);
   $form->addInput($beian);
   $form->addInput($qiniu);
