@@ -39,6 +39,7 @@ if (!empty($this->options->cdn) && $this->options->cdn) {
   <?php endif ?>
 </head>
 <body>
+<div id="pjax">
 <div class="d-flex site-wrapper">
   <div class="d-block d-lg-none d-xl-none sidebar-wrapper">
     <div class="sidebar-container">
