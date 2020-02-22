@@ -43,13 +43,15 @@ if (!empty($this->options->cdn) && $this->options->cdn) {
 
 <div class="animated fixed-to-top click-to-top">
   <i class="fas fa-angle-double-up"></i>
+  <?php if ($this->is('post')): ?>
+  <span class="animated progress-number"></span>
+  <?php endif ?>
 </div>
 
 </div>
 <div class="toast-wrapper" aria-live="polite" aria-atomic="true">
   <div class="toast-wrapper-list"></div>
 </div>
-
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
 <script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>

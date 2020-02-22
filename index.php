@@ -137,7 +137,7 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
         } ?>">
           <div class="post-card-image">
             <div class="post-card-image-shadow"></div>
-            <a href="<?= $this->permalink; ?>" class="post-card-image-link<?php if ($this->sequence % 2 === 0) {
+            <a data-ajax href="<?= $this->permalink; ?>" class="post-card-image-link<?php if ($this->sequence % 2 === 0) {
               echo ' even';
             } else {
               echo ' odd';
@@ -162,7 +162,7 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
               <?php $this->category('/', false); ?>
             </div>
             <h3 class="post-card-content-title">
-              <a href="<?= $this->permalink; ?>" class="post-card-content-title-link"><?php $this->title(); ?></a>
+              <a data-ajax href="<?= $this->permalink; ?>" class="post-card-content-title-link"><?php $this->title(); ?></a>
             </h3>
             <p class="mb-3 mb-md-5 post-card-content-excerpt">
               <?php

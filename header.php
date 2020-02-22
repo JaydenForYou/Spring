@@ -77,6 +77,11 @@ if (!empty($this->options->cdn) && $this->options->cdn) {
 
   </div>
   <div class="main-wrapper">
+    <?php if ($this->is('post')): ?>
+      <div class="progress site-progress">
+        <div class="progress-bar reading-progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+    <?php endif ?>
     <header class="fixed-top shadow-sm main-header scroll-reveal-header">
       <nav class="navbar navbar-expand-lg header-navbar">
         <div class="container">
