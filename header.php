@@ -3,6 +3,9 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 if (!empty($this->options->cdn) && $this->options->cdn) {
   define('__TYPECHO_THEME_URL__', Typecho_Common::url(__TYPECHO_THEME_DIR__ . '/' . basename(dirname(__FILE__)), $this->options->cdn));
 }
+
+$http_type = ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') || (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https')) ? 'https://' : 'http://';
+$site = $http_type . $_SERVER['HTTP_HOST'];
 ?>
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -86,7 +89,7 @@ if (!empty($this->options->cdn) && $this->options->cdn) {
     <header class="fixed-top shadow-sm main-header scroll-reveal-header">
       <nav class="navbar navbar-expand-lg header-navbar">
         <div class="container">
-          <a class="navbar-brand" href="/">
+          <a class="navbar-brand" href="<?= $site ?>">
             <img src="https://getbootstrap.com/docs/4.4/assets/brand/bootstrap-solid.svg" width="30" height="30"
                  class="d-inline-block align-top navbar-brand-logo" alt="">
             <?= $this->options->title; ?>

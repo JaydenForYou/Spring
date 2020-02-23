@@ -39,6 +39,8 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
   $hiddens = 'hidden';
   $hidden = 'hidden';
 }
+$http_type = ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') || (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https')) ? 'https://' : 'http://';
+$site = $http_type . $_SERVER['HTTP_HOST'];
 ?>
 <section class="main-hero">
   <div class="main-hero-bg"
@@ -200,7 +202,7 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
         <nav aria-label="文章分页">
           <ul class="mb-0 pagination">
             <li class="page-item" <?php echo $hidden ?>>
-              <a class="page-link" href="<?= $page . $prev ?>" aria-label="上一页">
+              <a class="page-link" href="<?= $site . $page . $prev ?>" aria-label="上一页">
           <span aria-hidden="true">
             <i class="fas fa-angle-left"></i>
           </span>
@@ -209,7 +211,7 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
             <li class="page-item"><a class="page-link">第 <?= $cpage ?>
                 页，共<?php echo ceil($this->getTotal() / $this->parameter->pageSize); ?>页</a></li>
             <li class="page-item" <?php echo $hiddens ?>>
-              <a class="page-link" href="<?= $page . $next ?>" aria-label="下一页">
+              <a class="page-link" href="<?= $site . $page . $next ?>" aria-label="下一页">
           <span aria-hidden="true">
             <i class="fas fa-angle-right"></i>
           </span>

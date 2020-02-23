@@ -14,11 +14,6 @@ var loadFiles = {
     return url;
   }
 
-  function loadJs(file) {
-    var footer = $("footer").remove("script[role='reload']");
-    $("<scri" + "pt>" + "</scr" + "ipt>").attr({role: 'reload', src: file, type: 'text/javascript'}).appendTo(footer);
-  }
-
   /**
    * 动态加载JS文件的方法
    * Load javascript file method
