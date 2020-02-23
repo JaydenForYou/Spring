@@ -84,8 +84,9 @@ var loadFiles = {
     $('.sidebar-container').removeClass('boxshadow-right');
     $('.global-modal').remove();
     $('body').removeClass('overflow-hidden');
-    $('.pjax-loading-wrapper').fadeOut('slow');
-
+    setTimeout(() => {
+      $('.pjax-loading-wrapper').fadeOut('slow');
+    }, 700);
     if (checkValine === 1) {
       loadScript('//cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js', function () {
         loadScript(
