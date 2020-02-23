@@ -86,7 +86,6 @@ var loadFiles = {
   });
   $(document).on('pjax:complete', function () {
     $('.site-wrapper').removeClass('toggled');
-    $('.sidebar-toggler').show(250);
     $('.sidebar-container').removeClass('boxshadow-right');
     $('.global-modal').remove();
     $('body').removeClass('overflow-hidden');
