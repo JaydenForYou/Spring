@@ -1,5 +1,7 @@
 # TYPECHO Theme - Spring
-### 特色
+## PJAX版本
+> 请选择typecho-theme-pjax分支
+## 特色
 - 大气、简约、优雅以及强大的响应式布局
 - 原生黑暗模式，支持 macOS 和 window10 黑暗模式
 - 俩种风格文章模板，全宽和含有文章目录的模板
