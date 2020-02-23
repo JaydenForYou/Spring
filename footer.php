@@ -21,8 +21,8 @@ if (!empty($this->options->cdn) && $this->options->cdn) {
     </p>
   </div>
 </footer>
-
 </div>
+
 <div class="search-wrapper">
   <div class="container-sm">
     <button type="button" class="close search-close click-search-close" aria-label="Close">
@@ -40,10 +40,11 @@ if (!empty($this->options->cdn) && $this->options->cdn) {
     </div>
   </div>
 </div>
+</div>
 
 <div class="animated fixed-to-top click-to-top">
   <i class="fas fa-angle-double-up"></i>
-  <?php if ($this->is('post')): ?>
+  <?php if ($this->is('post') || $this->is('page')): ?>
     <span class="animated progress-number"></span>
   <?php endif ?>
 </div>
@@ -69,47 +70,21 @@ if (!empty($this->options->cdn) && $this->options->cdn) {
     </div>
   </div>
 </div>
-</div>
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
-<script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
 <script src="https://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
-<script type="text/javascript" src="<?php $this->options->themeUrl('assets/js/bundle.js'); ?>"></script>
-<script type="text/javascript" src="<?php $this->options->themeUrl('assets/js/pjax.js'); ?>"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
 <script>
-  $(document).on('pjax:complete', function () {
-    <?php if (!Utils::isEnabled('enableComments', 'JConfig') && $this->is('post')): ?>
-    loadScript('//cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js', function () {
-      loadScript(
-        'https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js',
-        function () {
-          if (document.getElementById('vcomments') !== null) {
-            new Valine({
-              el: '#vcomments',
-              appId: '<?php $this->options->APPID()?>',
-              appKey: '<?php $this->options->APPKEY()?>',
-              notify: true,
-              verify: true,
-              avatar: 'mm',
-              visitor: true, // 文章访问量统计
-              highlight: true, // 代码高亮
-              recordIP: true, // 是否记录评论者IP
-              placeholder: '请您理智发言，共建美好社会！'
-            });
-          }
-        }
-      );
-    });
-    <?php endif ?>
-    loadScript("https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js");
-    loadScript("https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js");
-    loadScript("<?php $this->options->themeUrl('assets/js/bundle.js'); ?>");
-    loadCSS("<?php $this->options->themeUrl('assets/css/styles.css'); ?>");
-    loadCSS("<?php $this->options->themeUrl('assets/css/style.css'); ?>");
-  });
+  var checkValine = 0;
+  <?php if (!Utils::isEnabled('enableComments', 'JConfig') && $this->is('post')): ?>
+  checkValine = 1;
+  <?php endif ?>
+  var bundle = "<?php $this->options->themeUrl('assets/js/bundle.js'); ?>";
+  var styleCss = "<?php $this->options->themeUrl('assets/css/style.css'); ?>";
+  var stylesCss = "<?php $this->options->themeUrl('assets/css/styles.css'); ?>";
+</script>
+<script type="text/javascript" src="<?php $this->options->themeUrl('assets/js/pjax.js'); ?>"></script>
+<script>
   if (document.getElementById('vcomments') !== null) {
     new Valine({
       el: '#vcomments',

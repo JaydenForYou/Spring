@@ -78,7 +78,7 @@ if (!empty($this->options->cdn) && $this->options->cdn) {
 
   </div>
   <div class="main-wrapper">
-    <?php if ($this->is('post')): ?>
+    <?php if ($this->is('post') || $this->is('page')): ?>
       <div class="progress site-progress">
         <div class="progress-bar reading-progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
       </div>

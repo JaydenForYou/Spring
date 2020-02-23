@@ -36,8 +36,8 @@ function threadedComments($comments, $options)
   ?>">
     <div id="<?php $comments->theId(); ?>">
       <?php
-      $host = 'https://secure.gravatar.com';
-      $url = '/avatar/';
+      $host = 'https://cdn.v2ex.com';
+      $url = '/gravatar/';
       $size = '80';
       $default = 'mm';
       $rating = Helper::options()->commentsAvatarRating;
@@ -124,3 +124,4 @@ function threadedComments($comments, $options)
     </form>
   </div>
 </div>
+<?php if ($this->options->commentsAntiSpam): ?><nocompress><script>(function(){var a=document.addEventListener?{add:"addEventListener",focus:"focus",load:"DOMContentLoaded"}:{add:"attachEvent",focus:"onfocus",load:"onload"};var c,d,e,f,b=document.getElementById("<?php $this->respondId() ?>");null!=b&&(c=b.getElementsByTagName("form"),c.length>0&&(d=c[0],e=d.getElementsByTagName("textarea")[0],f=!1,null!=e&&"text"==e.name&&e[a.add](a.focus,function(){if(!f){var a=document.createElement("input");a.type="hidden",a.name="_",d.appendChild(a),f=!0,a.value=<?php echo Typecho_Common::shuffleScriptVar($this->security->getToken(preg_replace('/[\?|\&]_pjax=[^&]+/i','',$this->request->getRequestUrl()))) ?>}})))})();</script></nocompress><?php endif ?>
