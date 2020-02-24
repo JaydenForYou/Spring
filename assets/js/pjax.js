@@ -83,10 +83,12 @@ var loadFiles = {
     $('.site-wrapper').removeClass('toggled');
     $('.sidebar-container').removeClass('boxshadow-right');
     $('.global-modal').remove();
+    $('.site-tooltip-wrapper').remove();
+    $('.site-popover-wrapper').remove();
     $('body').removeClass('overflow-hidden');
     setTimeout(() => {
       $('.pjax-loading-wrapper').fadeOut('slow');
-    }, 700);
+    }, 800);
     if (checkValine === 1) {
       loadScript('//cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js', function () {
         loadScript(
