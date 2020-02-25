@@ -28,9 +28,8 @@
 规则如下:
 ```
 #格式一定要对，否则出错
-[link]
-[info]站点名称$站点链接$站点头像$站点描述[info] #info 一个链接一行
-[/link]
+- 博客名|[博客地址](博客地址)|头像地址|博客简介
+- 林尽欢|[https://iobiji.com](https://iobiji.com)|https://cdn.iobiji.com/202001/jinhuan.jpg|我最不喜欢做选择，但我选择了，就一定不后悔。
 ```
 
 
