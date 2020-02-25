@@ -38,7 +38,7 @@ if (!empty($this->options->cdn) && $this->options->cdn) {
     <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
   <?php endif ?>
 </head>
-<body>
+<body class="rebirth-body">
 <div class="d-flex site-wrapper">
   <div class="d-block d-lg-none d-xl-none sidebar-wrapper">
     <div class="sidebar-container">
