@@ -35,4 +35,4 @@
 
 ### License
 
-Rebirth is licensed under GNU General Public License Version 3 or later.
+Typecho Theme Spring is open source and released under the MIT License.
