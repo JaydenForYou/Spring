@@ -1,7 +1,5 @@
 # TYPECHO Theme - Spring
-## PJAX版本
-> 请选择typecho-theme-pjax分支
-## 特色
+### 特色
 - 大气、简约、优雅以及强大的响应式布局
 - 原生黑暗模式，支持 macOS 和 window10 黑暗模式
 - 俩种风格文章模板，全宽和含有文章目录的模板
@@ -30,9 +28,8 @@
 规则如下:
 ```
 #格式一定要对，否则出错
-[link]
-[info]站点名称$站点链接$站点头像$站点描述[info] #info 一个链接一行
-[/link]
+- 博客名|[博客地址](博客地址)|头像地址|博客简介
+- 林尽欢|[https://iobiji.com](https://iobiji.com)|https://cdn.iobiji.com/202001/jinhuan.jpg|我最不喜欢做选择，但我选择了，就一定不后悔。
 ```
 
 
