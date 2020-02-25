@@ -44,7 +44,7 @@ if (!empty($this->options->cdn) && $this->options->cdn) {
 
 <div class="d-flex justify-content-center align-items-center flex-column animated fixed-to-top click-to-top">
   <i class="fas fa-angle-double-up"></i>
-  <?php if ($this->is('post') || $this->is('page')): ?>
+  <?php if ($this->is('post')): ?>
     <span class="animated progress-number"></span>
   <?php endif ?>
 </div>
