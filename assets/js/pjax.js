@@ -83,10 +83,12 @@ var loadFiles = {
     $('.site-wrapper').removeClass('toggled');
     $('.sidebar-container').removeClass('boxshadow-right');
     $('.global-modal').remove();
+    $('.site-tooltip-wrapper').remove();
+    $('.site-popover-wrapper').remove();
     $('body').removeClass('overflow-hidden');
     setTimeout(() => {
       $('.pjax-loading-wrapper').fadeOut('slow');
-    }, 700);
+    }, 800);
     if (checkValine === 1) {
       loadScript('//cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js', function () {
         loadScript(
@@ -110,6 +112,9 @@ var loadFiles = {
         );
       });
     }
+    // 自定义脚本回调
+    if (typeof window.ga !== 'undefined') window.ga('send', 'pageview', window.location.pathname + window.location.search);
+    if (typeof window._hmt !== 'undefined') window._hmt.push(['_trackPageview', window.location.pathname + window.location.search]);
     loadScript("https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js");
     loadScript("https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js");
     loadScript(bundle);
