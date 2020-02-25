@@ -47,7 +47,7 @@ $this->need('header.php');
     border: 1px solid #dee2e6 !important;
   }
 </style>
-<body class="page-template page-links rebirth-body">
+<body class="page-template page-links spring-body">
 <section class="main-hero">
   <div class="main-hero-bg"
        style="background-image: url('<?= $this->fields->thumbnail ?>')"></div>
