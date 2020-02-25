@@ -1,4 +1,6 @@
 # TYPECHO Theme - Spring
+### PJAX版本
+[TYPECHO THEME PJAX](https://github.com/JaydenForYou/Spring/tree/typecho-theme-pjax)
 ### 特色
 - 大气、简约、优雅以及强大的响应式布局
 - 原生黑暗模式，支持 macOS 和 window10 黑暗模式
@@ -35,4 +37,4 @@
 
 ### License
 
-Rebirth is licensed under GNU General Public License Version 3 or later.
+Typecho Theme Spring is open source and released under the MIT License.
