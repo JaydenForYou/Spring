@@ -9,7 +9,7 @@
  */
 $this->need('header.php');
 ?>
-<body class="page-template page-card rebirth-body" style="height: 100%;">
+<body class="page-template page-card spring-body" style="height: 100%;">
 <div class="d-flex justify-content-center align-items-center flex-column about-me-home">
   <div class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5 about-me">
     <div class="about-me__side about-me__side--front">

@@ -165,31 +165,6 @@ class Utils
     return $name;
   }
 
-  public static function praseLink($content)
-  {
-    $pattern = "~\[link\](.*)\[\/link\]~";
-    preg_match_all($pattern, $content, $tmp);
-    $tmp = explode("[info]", $tmp[1][0]);
-    $arr = array();
-    foreach ($tmp as $key => $v) {
-      if (strlen($v) > 4) {
-        $tmp = explode('$', $v);
-        $p = "~<a href=\"(.*)\">(.*)</a>~";
-        preg_match($p, $tmp[2], $a);
-        $tmp[2] = $a[1];
-        $arr[$key] = $tmp;
-      }
-    }
-    return $arr;
-  }
-
-  public static function praseContent($content)
-  {
-    $pattern = "~\[link\](.*)\[\/link\]~";
-    $tmp = preg_replace($pattern, '', $content);
-    return $tmp;
-  }
-
   public static function getAuthorPosts($id)
   {
     $db = Typecho_Db::get();

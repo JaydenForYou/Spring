@@ -41,7 +41,7 @@ $site = $http_type . $_SERVER['HTTP_HOST'];
     <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
   <?php endif ?>
 </head>
-<body class="rebirth-body">
+<body class="spring-body">
 <div id="pjax">
 <div class="d-flex site-wrapper">
   <div class="d-block d-lg-none d-xl-none sidebar-wrapper">
