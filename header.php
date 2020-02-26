@@ -81,7 +81,7 @@ $site = $http_type . $_SERVER['HTTP_HOST'];
 
   </div>
   <div class="main-wrapper">
-    <?php if ($this->is('post') || $this->is('page')): ?>
+    <?php if ($this->is('post')): ?>
       <div class="progress site-progress">
         <div class="progress-bar reading-progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
       </div>

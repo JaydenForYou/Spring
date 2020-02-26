@@ -89,27 +89,20 @@ var loadFiles = {
     setTimeout(() => {
       $('.pjax-loading-wrapper').fadeOut('slow');
     }, 800);
-    if (checkValine === 1) {
-      loadScript('//cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js', function () {
-        loadScript(
-          'https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js',
-          function () {
-            if (document.getElementById('vcomments') !== null) {
-              new Valine({
-                el: '#vcomments',
-                appId: '<?php $this->options->APPID()?>',
-                appKey: '<?php $this->options->APPKEY()?>',
-                notify: true,
-                verify: true,
-                avatar: 'mm',
-                visitor: true, // 文章访问量统计
-                highlight: true, // 代码高亮
-                recordIP: true, // 是否记录评论者IP
-                placeholder: '人生在世，错别字在所难免，无需纠正。'
-              });
-            }
-          }
-        );
+    if (document.getElementById('vcomments') !== null) {
+      new Valine({
+        el: '#vcomments',
+        appId: appId,
+        appKey: appKey,
+        serverURLs: serverUrls,
+        notify: true,
+        verify: true,
+        avatar: 'mm',
+        visitor: true,
+        highlight: true,
+        recordIP: true,
+        placeholder: '人生在世，错别字在所难免，无需纠正。',
+        path: window.location.pathname
       });
     }
     // 自定义脚本回调

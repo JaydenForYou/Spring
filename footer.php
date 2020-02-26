@@ -73,35 +73,17 @@ if (!empty($this->options->cdn) && $this->options->cdn) {
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
 <script>
-  var checkValine = 0;
-  <?php if (!Utils::isEnabled('enableComments', 'JConfig') && $this->is('post')): ?>
-  checkValine = 1;
-  <?php endif ?>
-  var bundle = "<?php $this->options->themeUrl('assets/js/bundle.js'); ?>";
-  var styleCss = "<?php $this->options->themeUrl('assets/css/style.css'); ?>";
-  var stylesCss = "<?php $this->options->themeUrl('assets/css/styles.css'); ?>";
+  const bundle = "<?php $this->options->themeUrl('assets/js/bundle.js'); ?>";
+  const styleCss = "<?php $this->options->themeUrl('assets/css/style.css'); ?>";
+  const stylesCss = "<?php $this->options->themeUrl('assets/css/styles.css'); ?>";
+  const appId = "<?php $this->options->APPID()?>";
+  const appKey = "<?php $this->options->APPKEY()?>";
+  const serverUrls = "<?php $this->options->serverURLs()?>";
 </script>
 <script type="text/javascript" src="<?php $this->options->themeUrl('assets/js/pjax.js'); ?>"></script>
-<script>
-  if (document.getElementById('vcomments') !== null) {
-    new Valine({
-      el: '#vcomments',
-      appId: '<?php $this->options->APPID()?>',
-      appKey: '<?php $this->options->APPKEY()?>',
-      serverURLs: '<?php $this->options->serverURLs()?>',
-      notify: true,
-      verify: true,
-      avatar: 'mm',
-      visitor: true,
-      highlight: true,
-      recordIP: true,
-      placeholder: '人生在世，错别字在所难免，无需纠正。',
-      path: window.location.pathname
-    });
-  }
-</script>
 <?php $this->footer(); ?>
 </body>
 </html>
