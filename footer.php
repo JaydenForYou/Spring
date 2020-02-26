@@ -58,22 +58,9 @@ if (!empty($this->options->cdn) && $this->options->cdn) {
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
 <script type="text/javascript" src="<?php $this->options->themeUrl('assets/js/bundle.js'); ?>"></script>
 <script>
-  if (document.getElementById('vcomments') !== null) {
-    new Valine({
-      el: '#vcomments',
-      appId: '<?php $this->options->APPID()?>',
-      appKey: '<?php $this->options->APPKEY()?>',
-      serverURLs: '<?php $this->options->serverURLs()?>',
-      notify: true,
-      verify: true,
-      avatar: 'mm',
-      visitor: true,
-      highlight: true,
-      recordIP: true,
-      placeholder: '人生在世，错别字在所难免，无需纠正。',
-      path: window.location.pathname
-    });
-  }
+  const appId = "<?php $this->options->APPID()?>";
+  const appKey = "<?php $this->options->APPKEY()?>";
+  const serverUrls = "<?php $this->options->serverURLs()?>";
 </script>
 <?php $this->footer(); ?>
 </body>
