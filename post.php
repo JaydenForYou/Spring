@@ -76,7 +76,7 @@
       </li>
       <li class="post-copyright-link aline">
         <strong>文章链接：</strong>
-        <a href="<?= $this->permalink; ?>" title="<?= $this->title; ?>"><?= $this->permalink; ?></a>
+        <a data-pjax href="<?= $this->permalink; ?>" title="<?= $this->title; ?>"><?= $this->permalink; ?></a>
       </li>
       <li class="post-copyright-license">
         <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
@@ -89,7 +89,7 @@
         <?php echo $this->author->gravatar(320, 'G', NULL, 'author-profile-image') ?>
         <section class="author-card-content">
           <h4 class="author-card-name">
-            <a href="<?= $this->author->permalink; ?>"><?php $this->author(); ?></a>
+            <a data-pjax href="<?= $this->author->permalink; ?>"><?php $this->author(); ?></a>
           </h4>
           <div class="author-card-social">
             <a class="site-tooltip author-card-social-links" target="_blank" rel="noreferrer noopener nofollow"
@@ -123,7 +123,7 @@
         </section>
       </section>
       <div class="post-footer-right">
-        <a class="author-card-button" href="<?= $this->author->permalink; ?>">更多文章</a>
+        <a data-pjax class="author-card-button" href="<?= $this->author->permalink; ?>">更多文章</a>
       </div>
     </section>
     <?php if (posts($this) != false || thePrev($this) != false || theNext($this) != false): ?>
@@ -135,7 +135,7 @@
               <header class="read-next-card-header">
                 <small class="read-next-card-header-sitetitle">&mdash; <?php $this->author(); ?> &mdash;</small>
                 <h3 class="read-next-card-header-title">
-                  <a href="<?= getCategory($this)['url']; ?>"><?= getCategory($this)['category']; ?></a>
+                  <a data-pjax href="<?= getCategory($this)['url']; ?>"><?= getCategory($this)['category']; ?></a>
                 </h3>
               </header>
               <div class="read-next-divider">
@@ -148,20 +148,20 @@
                 <ul>
                   <?php if (posts($this) != false): ?>
                     <?php foreach (posts($this) as $v) { ?>
-                      <li><a href="<?= $v['url'] ?>"><?= $v['title'] ?></a></li>
+                      <li><a data-pjax href="<?= $v['url'] ?>"><?= $v['title'] ?></a></li>
                     <?php } ?>
                   <?php endif; ?>
                 </ul>
               </div>
               <footer class="read-next-card-footer">
-                <a href="<?= getCategory($this)['url']; ?>">查看更多文章 →</a>
+                <a data-pjax href="<?= getCategory($this)['url']; ?>">查看更多文章 →</a>
               </footer>
             </article>
           </div>
           <?php if (thePrev($this) != false): ?>
             <div class="col-lg px-0 px-sm-3 d-flex min-h-300 post-read-more-item">
               <article class="post-read-next">
-                <a class="post-read-next-image-link" href="<?= thePrev($this)['url']; ?>">
+                <a data-pjax class="post-read-next-image-link" href="<?= thePrev($this)['url']; ?>">
                   <img class="post-read-next-image" src="<?php if (!empty(thePrev($this)['thumbnail'])) {
                     echo thePrev($this)['thumbnail'];
                   } else {
@@ -170,7 +170,7 @@
                        alt="#">
                 </a>
                 <div class="post-read-next-content">
-                  <a class="post-read-next-content-link" href="<?= thePrev($this)['url']; ?>">
+                  <a data-pjax class="post-read-next-content-link" href="<?= thePrev($this)['url']; ?>">
                     <header class="post-read-next-header">
                       <span class="post-read-next-tags"><?= thePrev($this)['category']; ?></span>
                       <h2 class="post-read-next-title"><?= thePrev($this)['title']; ?></h2>
@@ -182,7 +182,7 @@
                   <footer class="post-read-next-meta">
                     <ul class="author-list">
                       <li class="author-list-item">
-                        <a href="<?= thePrev($this)['url']; ?>" class="static-avatar">
+                        <a data-pjax href="<?= thePrev($this)['url']; ?>" class="static-avatar">
                           <?php echo $this->author->gravatar(320, 'G', NULL, 'author-profile-image') ?>
                           <span class="author-profile-name"><?php $this->author(); ?></span>
                         </a>
@@ -197,7 +197,7 @@
           <?php if (theNext($this) != false): ?>
             <div class="col-xl px-0 px-sm-3 d-flex min-h-300 post-read-more-item">
               <article class="post-read-next">
-                <a class="post-read-next-image-link" href="<?= theNext($this)['url']; ?>">
+                <a data-pjax class="post-read-next-image-link" href="<?= theNext($this)['url']; ?>">
                   <img class="post-read-next-image" src="<?php if (!empty(theNext($this)['thumbnail'])) {
                     echo theNext($this)['thumbnail'];
                   } else {
@@ -206,7 +206,7 @@
                        alt="#">
                 </a>
                 <div class="post-read-next-content">
-                  <a class="post-read-next-content-link" href="<?= theNext($this)['url']; ?>">
+                  <a data-pjax class="post-read-next-content-link" href="<?= theNext($this)['url']; ?>">
                     <header class="post-read-next-header">
                       <span class="post-read-next-tags"><?= theNext($this)['category']; ?></span>
                       <h2 class="post-read-next-title"><?= theNext($this)['title']; ?></h2>
@@ -218,7 +218,7 @@
                   <footer class="post-read-next-meta">
                     <ul class="author-list">
                       <li class="author-list-item">
-                        <a href="<?= theNext($this)['url']; ?>" class="static-avatar">
+                        <a data-pjax href="<?= theNext($this)['url']; ?>" class="static-avatar">
                           <?php echo $this->author->gravatar(320, 'G', NULL, 'author-profile-image') ?>
                           <span class="author-profile-name"><?php $this->author(); ?></span>
                         </a>

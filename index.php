@@ -93,7 +93,7 @@ $site = $http_type . $_SERVER['HTTP_HOST'];
            data-original-title="访问Github">
           <i class="fab fa-github"></i>
         </a>
-        <a class="site-tooltip main-hero-content-social-links" target="_blank" rel="noreferrer noopener nofollow"
+        <a data-pjax class="site-tooltip main-hero-content-social-links" target="_blank" rel="noreferrer noopener nofollow"
            href="<?=Utils::getAuthor($this->author->url)['site']?>" data-toggle="tooltip" data-placement="bottom" title=""
            data-original-title="个人地址">
           <i class="fas fa-globe-asia"></i>
@@ -139,7 +139,7 @@ $site = $http_type . $_SERVER['HTTP_HOST'];
         } ?>">
           <div class="post-card-image">
             <div class="post-card-image-shadow"></div>
-            <a href="<?= $this->permalink; ?>" class="post-card-image-link<?php if ($this->sequence % 2 === 0) {
+            <a data-pjax href="<?= $this->permalink; ?>" class="post-card-image-link<?php if ($this->sequence % 2 === 0) {
               echo ' even';
             } else {
               echo ' odd';
@@ -164,7 +164,7 @@ $site = $http_type . $_SERVER['HTTP_HOST'];
               <?php $this->category('/', false); ?>
             </div>
             <h3 class="post-card-content-title">
-              <a href="<?= $this->permalink; ?>" class="post-card-content-title-link"><?php $this->title(); ?></a>
+              <a data-pjax href="<?= $this->permalink; ?>" class="post-card-content-title-link"><?php $this->title(); ?></a>
             </h3>
             <p class="mb-3 mb-md-5 post-card-content-excerpt">
               <?php
@@ -176,7 +176,7 @@ $site = $http_type . $_SERVER['HTTP_HOST'];
             </p>
             <div class="d-flex align-items-center post-card-content-meta">
               <div class="d-flex align-items-center mr-1 post-card-content-meta-authors">
-                <a href="<?= $this->author->permalink; ?>" class="post-card-content-meta-authors-link site-tooltip"
+                <a data-pjax href="<?= $this->author->permalink; ?>" class="post-card-content-meta-authors-link site-tooltip"
                    data-toggle="tooltip"
                    data-placement="top" title="<?php $this->author(); ?>">
                   <?php echo $this->author->gravatar(320, 'G', NULL, 'img-thumbnail rounded-circle post-card-content-meta-authors-link-avatar') ?>
@@ -202,7 +202,7 @@ $site = $http_type . $_SERVER['HTTP_HOST'];
         <nav aria-label="文章分页">
           <ul class="mb-0 pagination">
             <li class="page-item" <?php echo $hidden ?>>
-              <a class="page-link" href="<?= $site . $page . $prev ?>" aria-label="上一页">
+              <a data-pjax class="page-link" href="<?= $site . $page . $prev ?>" aria-label="上一页">
           <span aria-hidden="true">
             <i class="fas fa-angle-left"></i>
           </span>
@@ -211,7 +211,7 @@ $site = $http_type . $_SERVER['HTTP_HOST'];
             <li class="page-item"><a class="page-link">第 <?= $cpage ?>
                 页，共<?php echo ceil($this->getTotal() / $this->parameter->pageSize); ?>页</a></li>
             <li class="page-item" <?php echo $hiddens ?>>
-              <a class="page-link" href="<?= $site . $page . $next ?>" aria-label="下一页">
+              <a data-pjax class="page-link" href="<?= $site . $page . $next ?>" aria-label="下一页">
           <span aria-hidden="true">
             <i class="fas fa-angle-right"></i>
           </span>

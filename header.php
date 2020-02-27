@@ -60,13 +60,13 @@ $site = $http_type . $_SERVER['HTTP_HOST'];
       <div class="list-group list-group-flush">
         <?php $this->widget('Widget_Metas_Category_List')->to($category); ?>
         <?php while ($category->next()): ?>
-          <a class="list-group-item list-group-item-action menu-item <?php if ($this->is('category', $category->slug)) {
+          <a data-pjax class="list-group-item list-group-item-action menu-item <?php if ($this->is('category', $category->slug)) {
             echo 'active';
           } ?>" href="<?php $category->permalink(); ?>"><?php $category->name(); ?></a>
         <?php endwhile; ?>
         <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
         <?php while ($pages->next()): ?>
-          <a class="list-group-item list-group-item-action menu-item <?php if ($this->is('page', $pages->slug)) {
+          <a data-pjax class="list-group-item list-group-item-action menu-item <?php if ($this->is('page', $pages->slug)) {
             echo 'active';
           } ?>" href="<?php $pages->permalink(); ?>"><?php $pages->title(); ?></a>
         <?php endwhile; ?>
@@ -89,7 +89,7 @@ $site = $http_type . $_SERVER['HTTP_HOST'];
     <header class="fixed-top shadow-sm main-header scroll-reveal-header">
       <nav class="navbar navbar-expand-lg header-navbar">
         <div class="container">
-          <a class="navbar-brand" href="<?= $site ?>">
+          <a data-pjax class="navbar-brand" href="<?= $site ?>">
             <img src="https://getbootstrap.com/docs/4.4/assets/brand/bootstrap-solid.svg" width="30" height="30"
                  class="d-inline-block align-top navbar-brand-logo" alt="">
             <?= $this->options->title; ?>
@@ -106,13 +106,13 @@ $site = $http_type . $_SERVER['HTTP_HOST'];
               <?php while ($category->next()): ?>
                 <li class="nav-item<?php if ($this->is('category', $category->slug)) {
                   echo ' nav-current active';
-                } ?>"><a class="nav-link" href="<?php $category->permalink(); ?>"><?php $category->name(); ?></a></li>
+                } ?>"><a data-pjax class="nav-link" href="<?php $category->permalink(); ?>"><?php $category->name(); ?></a></li>
               <?php endwhile; ?>
               <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
               <?php while ($pages->next()): ?>
                 <li class="nav-item<?php if ($this->is('page', $pages->slug)) {
                   echo ' nav-current active';
-                } ?>"><a class="nav-link" href="<?php $pages->permalink(); ?>"><?php $pages->title(); ?></a></li>
+                } ?>"><a data-pjax class="nav-link" href="<?php $pages->permalink(); ?>"><?php $pages->title(); ?></a></li>
               <?php endwhile; ?>
             </ul>
             <div class="ml-auto nav-left">

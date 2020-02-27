@@ -54,7 +54,7 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
         } ?>">
           <div class="post-card-image">
             <div class="post-card-image-shadow"></div>
-            <a href="<?= $this->permalink; ?>" class="post-card-image-link<?php if ($this->sequence % 2 === 0) {
+            <a data-pjax href="<?= $this->permalink; ?>" class="post-card-image-link<?php if ($this->sequence % 2 === 0) {
               echo ' even';
             } else {
               echo ' odd';
@@ -79,7 +79,7 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
               <?php $this->category('/', false); ?>
             </div>
             <h3 class="post-card-content-title">
-              <a href="<?= $this->permalink; ?>" class="post-card-content-title-link"><?php $this->title(); ?></a>
+              <a data-pjax href="<?= $this->permalink; ?>" class="post-card-content-title-link"><?php $this->title(); ?></a>
             </h3>
             <p class="mb-3 mb-md-5 post-card-content-excerpt">
               <?php
@@ -91,7 +91,7 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
             </p>
             <div class="d-flex align-items-center post-card-content-meta">
               <div class="d-flex align-items-center mr-1 post-card-content-meta-authors">
-                <a href="<?= $this->author->permalink; ?>" class="post-card-content-meta-authors-link site-tooltip"
+                <a data-pjax href="<?= $this->author->permalink; ?>" class="post-card-content-meta-authors-link site-tooltip"
                    data-toggle="tooltip"
                    data-placement="top" title="<?php $this->author(); ?>">
                   <?php echo $this->author->gravatar(320, 'G', NULL, 'img-thumbnail rounded-circle post-card-content-meta-authors-link-avatar') ?>
@@ -117,7 +117,7 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
         <nav aria-label="文章分页">
           <ul class="mb-0 pagination">
             <li class="page-item" <?php echo $hidden ?>>
-              <a class="page-link" href="<?= $page . $prev ?>" aria-label="上一页">
+              <a data-pjax class="page-link" href="<?= $page . $prev ?>" aria-label="上一页">
           <span aria-hidden="true">
             <i class="fas fa-angle-left"></i>
           </span>
@@ -126,7 +126,7 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
             <li class="page-item"><a class="page-link">第 <?= $cpage ?>
                 页，共<?php echo ceil($this->getTotal() / $this->parameter->pageSize); ?>页</a></li>
             <li class="page-item" <?php echo $hiddens ?>>
-              <a class="page-link" href="<?= $page . $next ?>" aria-label="下一页">
+              <a data-pjax class="page-link" href="<?= $page . $next ?>" aria-label="下一页">
           <span aria-hidden="true">
             <i class="fas fa-angle-right"></i>
           </span>

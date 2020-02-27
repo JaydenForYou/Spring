@@ -31,7 +31,7 @@
             <section class="error-message">
               <h1 class="error-code">404</h1>
               <h2 class="error-description">Page not found</h2>
-              <a class="error-link" href="<?php $this->options->siteUrl(); ?>">Go to the front page →</a>
+              <a data-pjax class="error-link" href="<?php $this->options->siteUrl(); ?>">Go to the front page →</a>
             </section>
           </section>
         </section>

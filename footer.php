@@ -83,7 +83,7 @@ if (!empty($this->options->cdn) && $this->options->cdn) {
   const appKey = "<?php $this->options->APPKEY()?>";
   const serverUrls = "<?php $this->options->serverURLs()?>";
 </script>
-<script type="text/javascript" src="<?php $this->options->themeUrl('assets/js/pjax.js'); ?>"></script>
+<script type="text/javascript" src="<?php $this->options->themeUrl('assets/js/bundle.js'); ?>"></script>
 <?php $this->footer(); ?>
 </body>
 </html>
