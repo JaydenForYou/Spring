@@ -74,13 +74,14 @@ class Utils
    */
   public static function getThumbnail()
   {
-    $options = Helper::options();
+    /*$options = Helper::options();
     if (!null == $options->qiniu) {
       $qurl = str_replace($options->siteUrl, $options->qiniu . '/', $options->themeUrl);
     } else {
       $qurl = $options->themeUrl;
     }
-    return $qurl . '/assets/img/post.jpg';
+    return $qurl . '/assets/img/post.jpg';*/
+    return 'https://ae01.alicdn.com/kf/H54ab5ecac0e4422aa32abbde20d98842E.png';
   }
 
   /**
