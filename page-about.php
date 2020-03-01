@@ -33,13 +33,13 @@ $this->need('header.php');
           <p>
             <span class="purple">const</span> aboutMe <span class="cyan">=</span> {
             <br />
-            <span class="space red">name</span><span class="cyan">:</span> <span class="green">'Carlos Lin'</span>,
+            <span class="space red">name</span><span class="cyan">:</span> <span class="green">'Lee'</span>,
             <br/>
-            <span class="space red">email</span><span class="cyan">:</span> <span class="green">'i@iobiji.com</span>',
+            <span class="space red">email</span><span class="cyan">:</span> <span class="green">'88354666@qq.com</span>',
             <br/>
-            <span class="space red">position</span><span class="cyan">:</span> <span class="green">'Web Front-End Developer'</span>,
+            <span class="space red">position</span><span class="cyan">:</span> <span class="green">'Web Front-End Developer,PHPer'</span>,
             <br/>
-            <span class="space red">website</span><span class="cyan">:</span> <span class="green">'https://iobiji.com'</span>
+            <span class="space red">website</span><span class="cyan">:</span> <span class="green">'https://phpgg.com'</span>
             <br/> };
           </p>
         </div>
