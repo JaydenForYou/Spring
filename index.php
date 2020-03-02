@@ -40,6 +40,16 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
   $hidden = 'hidden';
 }
 ?>
+
+<script>
+  fetch('https://v1.hitokoto.cn')
+    .then(response => response.json())
+    .then(data => {
+      const hitokoto = document.getElementById('hitokoto');
+      hitokoto.innerText = data.hitokoto;
+    })
+    .catch(err => console.error(err));
+</script>
 <section class="main-hero">
   <div class="main-hero-bg"
        style="background-image: url('<?php if ($this->getDescription() != null && !$this->is('index') && !$this->is('author')) {
@@ -108,7 +118,7 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
       </div>
     <?php elseif ($this->is('index')): ?>
       <div class="text-center main-hero-content-title"><?=$this->options->ititle?></div>
-      <div class="text-center main-hero-content-description home-sentence">我最不喜欢做选择，但我选择了，就一定不后悔。</div>
+      <div id= "hitokoto" class="text-center main-hero-content-description home-sentence">:D 获取中...</div>
     <?php endif ?>
   </div>
   <div class="main-hero-waves-area">
