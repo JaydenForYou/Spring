@@ -57,7 +57,7 @@ class Utils
   public static function getBackground()
   {
     $options = Helper::options();
-    if (!null == $options->qiniu) {
+    if ($options->qiniu != null) {
       $qurl = str_replace($options->siteUrl, $options->qiniu . '/', $options->themeUrl);
     } else {
       $qurl = $options->themeUrl;
