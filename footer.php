@@ -82,6 +82,7 @@ if (!empty($this->options->cdn) && $this->options->cdn) {
   const appId = "<?php $this->options->APPID()?>";
   const appKey = "<?php $this->options->APPKEY()?>";
   const serverUrls = "<?php $this->options->serverURLs()?>";
+  const Title = "<?= $this->options->ititle ?>";
 </script>
 <script type="text/javascript" src="<?php $this->options->themeUrl('assets/js/bundle.js'); ?>"></script>
 <?php $this->footer(); ?>
