@@ -363,7 +363,9 @@ function themeConfig($form)
   $github = new Typecho_Widget_Helper_Form_Element_Text('github', NULL, '#', _t('GITHUB'), _t(''));
   $QQGROUP = new Typecho_Widget_Helper_Form_Element_Text('QQGROUP', NULL, '#', _t('QQ群链接'), _t(''));
   $ititle = new Typecho_Widget_Helper_Form_Element_Text('ititle', NULL, '首页标题', _t('首页标题'), _t(''));
+  $Logo = new Typecho_Widget_Helper_Form_Element_Text('Logo', NULL, '网站logo', _t('网站logo'), _t(''));
   $form->addInput($bgUrl);
+  $form->addInput($Logo);
   $form->addInput($ititle);
   $form->addInput($Subtitle);
   $form->addInput($beian);

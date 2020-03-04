@@ -90,7 +90,7 @@ class Utils
   public static function getContent($content)
   {
     $options = Helper::options();
-    if (!null == $options->qiniu) {
+    if ($options->qiniu != null) {
       $site = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'];
       return str_replace($site, $options->qiniu, $content);
     } else {
