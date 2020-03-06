@@ -75,9 +75,15 @@ if (!empty($this->options->cdn) && $this->options->cdn) {
 <script src="https://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
+<?php if (Utils::isEnabled('enableComments', 'JConfig')): ?>
+  <script type="text/javascript" src="<?php $this->options->themeUrl('assets/js/commentAjax.js'); ?>"></script>
+  <script>
+    const commentAjax = "<?php $this->options->themeUrl('assets/js/commentAjax.js'); ?>";
+  </script>
+<?php endif ?>
 <script>
   const bundle = "<?php $this->options->themeUrl('assets/js/bundle.js'); ?>";
-  const styleCss = "<?php $this->options->themeUrl('assets/css/style.css'); ?>";
+  const commentCss = "<?php $this->options->themeUrl('assets/css/comments.css'); ?>";
   const stylesCss = "<?php $this->options->themeUrl('assets/css/styles.css'); ?>";
   const appId = "<?php $this->options->APPID()?>";
   const appKey = "<?php $this->options->APPKEY()?>";

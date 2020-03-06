@@ -34,7 +34,7 @@ $site = $http_type . $_SERVER['HTTP_HOST'];
         href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.0/css/all.min.css">
   <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/styles.css'); ?>">
   <?php if ($this->is('post')): ?>
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/style.css'); ?>">
+    <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/comments.css'); ?>">
   <?php endif; ?>
   <?php if($this->options->Logo != null): ?>
     <link rel="shortcut icon" href="<?= $this->options->Logo; ?>" type="image/png" />

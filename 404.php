@@ -25,9 +25,6 @@
   <link type="text/css" rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.0/css/all.min.css">
   <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/styles.css'); ?>">
-  <?php if ($this->is('post')): ?>
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/style.css'); ?>">
-  <?php endif; ?>
   <?php if($this->options->Logo != null): ?>
     <link rel="shortcut icon" href="<?= $this->options->Logo; ?>" type="image/png" />
   <?php endif ?>
@@ -78,7 +75,7 @@
 <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
 <script>
   const bundle = "<?php $this->options->themeUrl('assets/js/bundle.js'); ?>";
-  const styleCss = "<?php $this->options->themeUrl('assets/css/style.css'); ?>";
+  const commentCss = "<?php $this->options->themeUrl('assets/css/comments.css'); ?>";
   const stylesCss = "<?php $this->options->themeUrl('assets/css/styles.css'); ?>";
   const appId = "<?php $this->options->APPID()?>";
   const appKey = "<?php $this->options->APPKEY()?>";
