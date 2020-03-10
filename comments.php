@@ -88,12 +88,11 @@ function threadedComments($comments, $options)
                                                                              value="<?php $this->remember('mail'); ?>"<?php if ($this->options->commentsRequireMail): ?> required<?php endif; ?>><input
             name="url" placeholder="网址(http://)" class="vlink vinput" type="text"
             value="<?php $this->remember('mail'); ?>"<?php if ($this->options->commentsRequireMail): ?> required<?php endif; ?>>
+          <input name="_" type="hidden" id="comment_" value="<?php echo Helper::security()->getToken(str_replace(array('?_pjax=%23wrap', '&_pjax=%23wrap'), '', Typecho_Request::getInstance()->getRequestUrl()));?>"/>
         </div>
 
         <div class="vedit">
-          <textarea name="text" id="veditor" class="veditor vinput"
-                    onkeydown="if(event.ctrlKey&&event.keyCode==13){document.getElementById('misubmit').click();return false};"
-                    placeholder="说点什么?"><?php $this->remember('text'); ?></textarea>
+          <textarea name="text" id="veditor" class="veditor vinput" placeholder="说点什么?"><?php $this->remember('text'); ?></textarea>
         </div>
         <div class="vcontrol">
           <div class="col col-20" title="Markdown is supported">
@@ -117,7 +116,6 @@ function threadedComments($comments, $options)
       </div>
     <?php endif; ?>
   </form>
-  <?php if ($this->options->commentsAntiSpam): ?><nocompress><script>(function(){var a=document.addEventListener?{add:"addEventListener",focus:"focus",load:"DOMContentLoaded"}:{add:"attachEvent",focus:"onfocus",load:"onload"};var c,d,e,f,b=document.getElementById("<?php $this->respondId() ?>");null!=b&&(c=b.getElementsByTagName("form"),c.length>0&&(d=c[0],e=d.getElementsByTagName("textarea")[0],f=!1,null!=e&&"text"==e.name&&e[a.add](a.focus,function(){if(!f){var a=document.createElement("input");a.type="hidden",a.name="_",d.appendChild(a),f=!0,a.value=<?php echo Typecho_Common::shuffleScriptVar($this->security->getToken(preg_replace('/[\?|\&]_pjax=[^&]+/i','',$this->request->getRequestUrl()))) ?>}})))})();</script></nocompress><?php endif ?>
   <?php if ($this->commentsNum != 0): ?>
     <div class="vinfo" style="display:block;">
       <div class="vcount col">
