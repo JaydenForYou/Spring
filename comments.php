@@ -88,7 +88,7 @@ function threadedComments($comments, $options)
                                                                              value="<?php $this->remember('mail'); ?>"<?php if ($this->options->commentsRequireMail): ?> required<?php endif; ?>><input
             name="url" placeholder="网址(http://)" class="vlink vinput" type="text"
             value="<?php $this->remember('mail'); ?>"<?php if ($this->options->commentsRequireMail): ?> required<?php endif; ?>>
-          <input name="_" type="hidden" id="comment_" value="<?php echo Helper::security()->getToken(str_replace(array('?_pjax=%23wrap', '&_pjax=%23wrap'), '', Typecho_Request::getInstance()->getRequestUrl()));?>"/>
+          <input name="_" type="hidden" id="comment_token" value="<?php echo Helper::security()->getToken(Typecho_Request::getInstance()->getRequestUrl());?>"/>
         </div>
 
         <div class="vedit">
