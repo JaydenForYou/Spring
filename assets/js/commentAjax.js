@@ -19,7 +19,7 @@ $(() => {
     const appendComment = (comment) => {
       // 评论列表
       let el = $('.comment-list');
-      if (comment.parent != 0) {
+      if (comment.parent !== 0) {
         // 子评论则重新定位评论列表
         el = $('#comment-' + comment.parent);
         // 父评论不存在子评论时
@@ -28,13 +28,13 @@ $(() => {
         }
         el = el.find('#parent-' + comment.parent);
       }
-      if (el.length == 0) {
+      if (el.length === 0) {
         $('<div class="vlist"><div class="vcard"></div><ol class="comment-list"></ol></div>').appendTo($('#comments'));
         el = $('#comments > .comment-list');
       }
       // 评论html模板，根据具体主题定制
       let html = '<div class="vlist" id="comment-{coid}"><div class="vcard" id="c-{coid}"><img class="vimg" src="{avatar}"><div class="vh"><div class="vhead"><span class="vnick"><a href="{url}" rel="external nofollow">{author}</a></span><span class="vsys">{browser}</span>&nbsp;<span class="vsys">{os}</span></div><div class="vmeta"><span class="vtime">{datetime}</span><span class="vat"><a href="javascript:void(0);" onclick="replyMsg(\'{coid}\',\'{author}\')">回复</a></span></div><div class="vcontent">{content}</div></div></div></div>\n';
-      if ($("#veditor").attr("parent") != null) {
+      if ($("#veditor").attr("parent") !== null) {
         html = '<div class="vlist" id="comment-{coid}"><div class="vcard" id="c-{coid}"><img class="vimg" src="{avatar}"><div class="vh"><div class="vhead"><span class="vnick"><a href="{url}" rel="external nofollow">{author}</a></span><span class="vsys">{browser}</span>&nbsp;<span class="vsys">{os}</span></div><div class="vmeta"><span class="vtime">{datetime}</span><span class="vat"><a href="javascript:void(0);" onclick="replyMsg(\'{coid}\',\'{author}\')">回复</a></span></div><div class="vcontent"><p><a href="#comment-{parent}">@{author}</a> {content}</p></div></div></div></div>\n';
       }
       $.each(comment, (k, v) => {
@@ -56,7 +56,7 @@ $(() => {
         $('#comment-form').find('.vsubmit').removeClass('loading').html('提交评论').removeAttr('disabled');
       },
       success: (result) => {
-        if (result.status == 1) {
+        if (result.status === 1) {
           // 新评论附加到评论列表
           appendComment(result.comment);
           $('#comment-form').find('textarea').val('');
