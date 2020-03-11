@@ -86,7 +86,7 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
               if ($this->fields->previewContent)
                 $this->fields->previewContent();
               else
-                $this->excerpt(55, '...');
+                $this->excerpt(500, '...');
               ?>
             </p>
             <div class="d-flex align-items-center post-card-content-meta">
