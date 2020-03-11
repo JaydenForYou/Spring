@@ -45,7 +45,7 @@ $(() => {
     };
     // ajax提交评论
     $.ajax({
-      url: $("form").attr("action"),
+      url: $("#comment-form").attr("action"),
       type: 'POST',
       data: params,
       dataType: 'json',
