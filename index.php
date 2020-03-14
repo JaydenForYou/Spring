@@ -129,10 +129,10 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
 </section>
 
 <main class="main-content">
-  <div class="container-sm">
+  <div class="container-sm pb-3 pb-lg-0">
     <?php while ($this->next()): ?>
-      <article class="row shadow mb-3 my-md-5 post-card home-post-item">
-        <div class="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-6 px-0<?php if ($this->sequence % 2 === 0) {
+      <article class="row mb-3 my-lg-5 post-card home-post-item">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-7 col-xl-6 px-0<?php if ($this->sequence % 2 === 0) {
           echo ' order-md-last';
         } ?>">
           <div class="post-card-image">
@@ -153,15 +153,15 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
             </a>
           </div>
         </div>
-        <div class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-6 pl-md-0<?php if ($this->sequence % 2 === 0) {
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6<?php if ($this->sequence % 2 === 0) {
           echo ' order-md-first';
         } ?>">
           <div class="d-flex flex-column justify-content-center post-card-content">
             <div class="text-center <?php if ($this->sequence % 2 === 0) {
-              echo 'text-md-right ';
+              echo 'text-lg-right ';
             } else {
-              echo 'text-md-left ';
-            } ?> mt-3 mt-md-0 post-card-content-tag">
+              echo 'text-lg-left ';
+            } ?> mt-3 mt-lg-0 post-card-content-tag">
               <i class="fas fa-bookmark"></i>
               <?php $this->category('/', false); ?>
             </div>
