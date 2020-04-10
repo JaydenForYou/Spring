@@ -202,7 +202,7 @@ $site = $http_type . $_SERVER['HTTP_HOST'];
         <nav aria-label="文章分页">
           <ul class="mb-0 pagination">
             <li class="page-item" <?php echo $hidden ?>>
-              <a data-pjax class="page-link" href="<?= $site . $page . $prev ?>" aria-label="上一页">
+              <a data-pjax class="page-link" href="<?=$site.(preg_filter('/index.php/','',$page)).$prev?>" aria-label="上一页">
           <span aria-hidden="true">
             <i class="fas fa-angle-left"></i>
           </span>
@@ -211,7 +211,7 @@ $site = $http_type . $_SERVER['HTTP_HOST'];
             <li class="page-item"><a class="page-link">第 <?= $cpage ?>
                 页，共<?php echo ceil($this->getTotal() / $this->parameter->pageSize); ?>页</a></li>
             <li class="page-item" <?php echo $hiddens ?>>
-              <a data-pjax class="page-link" href="<?= $site . $page . $next ?>" aria-label="下一页">
+              <a data-pjax class="page-link" href="<?=$site.(preg_filter('/index.php/','',$page)).$next?>" aria-label="下一页">
           <span aria-hidden="true">
             <i class="fas fa-angle-right"></i>
           </span>
