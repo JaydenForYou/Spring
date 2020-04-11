@@ -4,6 +4,42 @@ if (!empty($this->options->cdn) && $this->options->cdn) {
   define('__TYPECHO_THEME_URL__', Typecho_Common::url(__TYPECHO_THEME_DIR__ . '/' . basename(dirname(__FILE__)), $this->options->cdn));
 }
 ?>
+<section class="main-footer-waves-area waves-area">
+  <svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+    <defs>
+      <path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z" />
+    </defs>
+    <g class="parallax">
+      <use xlink:href="#gentle-wave" x="48" y="0" />
+      <use xlink:href="#gentle-wave" x="48" y="3" />
+      <use xlink:href="#gentle-wave" x="48" y="5" />
+      <use xlink:href="#gentle-wave" x="48" y="7" />
+    </g>
+  </svg>
+</section>
+<section class="py-5 main-footer-info">
+  <div class="container-sm">
+    <div class="row">
+      <div class="d-none d-lg-block col main-footer-info-tags">
+        <h3 class="mb-3 main-footer-info-title main-footer-info-tags-title">标签</h3>
+        <div class="d-flex flex-row flex-wrap align-items-start w-100 h-100 main-footer-info-tags-list">
+          <?php $this->widget('Widget_Metas_Tag_Cloud')
+->to($taglist); ?><?php while($taglist->next()): ?>
+<a href="<?php $taglist->permalink(); ?>" title="<?php $taglist->name(); ?>" class="tag-item"><?php $taglist->name(); ?></a>
+<?php endwhile; ?>
+        </div>
+      </div>
+      <div class="d-none d-lg-block col main-footer-info-navigation">
+        <h3 class="mb-3 main-footer-info-title main-footer-info-navigation-title">导航</h3>
+        <div class="w-100 h-100 main-footer-info-navigation-list">
+          <div class="side-navbar-nav list-group list-group-flush">
+            暂无导航
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 <footer class="main-footer">
   <div class="container d-flex justify-content-md-between justify-content-center">
     <div class="text-center main-footer-copyright">
