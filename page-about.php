@@ -17,7 +17,7 @@ $this->need('header.php');
     <div class="text-center main-hero-content-description"><?php $this->author(); ?>
       / <?= date('Y-m-d', $this->created) ?></div>
   </div>
-  <div class="main-hero-header"></div>
+  <div class="main-hero-header header-right"></div>
 </section>
 <main class="main-content custom-about-template">
   <div class="d-flex justify-content-center align-items-center flex-column about-me-home">
