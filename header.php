@@ -27,8 +27,7 @@ if (!empty($this->options->cdn) && $this->options->cdn) {
     <link rel="shortcut icon" href="<?= $this->options->logoUrl ?>" type="image/png"/>
   <?php endif; ?>
   <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
-  <link type="text/css" rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.0/css/all.min.css">
+  <link id="fontawesome-css" type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
   <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/styles.css'); ?>">
   <?php if ($this->is('post') || $this->is('page')): ?>
     <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/comments.css'); ?>">

@@ -9,16 +9,37 @@
       / <?= date('Y-m-d', $this->created) ?>
       / <?= getCategory($this)['category'] ?> / 阅读量 <?php get_post_view($this) ?></div>
   </div>
-  <div class="main-hero-header header-right"></div>
+  <div class="main-hero-waves-area waves-area">
+    <svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+         viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave"
+              d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"/>
+      </defs>
+      <g class="parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0"/>
+        <use xlink:href="#gentle-wave" x="48" y="3"/>
+        <use xlink:href="#gentle-wave" x="48" y="5"/>
+        <use xlink:href="#gentle-wave" x="48" y="7"/>
+      </g>
+    </svg>
+  </div>
 </section>
 
 <main class="main-content">
   <div class="container-sm">
     <div class="row post-content-main">
+      <nav class="d-none d-md-block post-content-main-breadcrumb" aria-label="breadcrumb">
+        <ol class="px-3 py-0 px-md-0 breadcrumb">
+          <li class="breadcrumb-item"><a href="<?=$this->options->siteUrl()?>"><?php $this->options->title(); ?></a></li>
+          <li class="breadcrumb-item"><a href="<?=getCategory($this)['url']?>"><?=getCategory($this)['category']?></a></li>
+          <li class="breadcrumb-item active" aria-current="page"><?= $this->title; ?></li>
+        </ol>
+      </nav>
       <article class="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-9 px-0 borderbox post-content article-main">
         <?= Utils::getContent($this->content); ?>
       </article>
-      <div class="d-none d-sm-none d-md-block col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 px-0 article-toc-area">
+      <div class="d-none d-md-block col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 px-0 article-toc-area">
         <nav id="site-toc" data-toggle="toc" class="sticky-top article-toc-nav">
         </nav>
       </div>
@@ -119,7 +140,7 @@
               <i class="fab fa-github"></i>
             </a>
           </div>
-          <p><?=Utils::getAuthor($this->author->url)['bio']?></p>
+          <p><?= Utils::getAuthor($this->author->url)['bio'] ?></p>
         </section>
       </section>
       <div class="post-footer-right">
