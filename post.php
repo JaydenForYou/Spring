@@ -28,14 +28,16 @@
 
 <main class="main-content">
   <div class="container-sm">
+    <nav class="d-none d-md-block post-content-main-breadcrumb" aria-label="breadcrumb">
+      <ol class="px-3 py-0 px-md-0 breadcrumb">
+        <li class="breadcrumb-item"><a href="<?= $this->options->siteUrl() ?>"><?php $this->options->title(); ?></a>
+        </li>
+        <li class="breadcrumb-item"><a href="<?= getCategory($this)['url'] ?>"><?= getCategory($this)['category'] ?></a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page"><?= $this->title; ?></li>
+      </ol>
+    </nav>
     <div class="row post-content-main">
-      <nav class="d-none d-md-block post-content-main-breadcrumb" aria-label="breadcrumb">
-        <ol class="px-3 py-0 px-md-0 breadcrumb">
-          <li class="breadcrumb-item"><a href="<?=$this->options->siteUrl()?>"><?php $this->options->title(); ?></a></li>
-          <li class="breadcrumb-item"><a href="<?=getCategory($this)['url']?>"><?=getCategory($this)['category']?></a></li>
-          <li class="breadcrumb-item active" aria-current="page"><?= $this->title; ?></li>
-        </ol>
-      </nav>
       <article class="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-9 px-0 borderbox post-content article-main">
         <?= Utils::getContent($this->content); ?>
       </article>
