@@ -34,10 +34,10 @@
 - 林尽欢|[https://iobiji.com](https://iobiji.com)|https://cdn.iobiji.com/202001/jinhuan.jpg|我最不喜欢做选择，但我选择了，就一定不后悔。
 ```
 ## Gravatar 镜像源
-- gravatar官方的www源 https://www.gravatar.com/avatar/
-- gravatar官方的cn源 https://cn.gravatar.com/avatar/
-- gravatar官方的en源 https://en.gravatar.com/avatar/
-- gravatar官方的secure源 https://secure.gravatar.com/avatar/
+- gravatar官方www源 https://www.gravatar.com/avatar/
+- gravatar官方cn源 https://cn.gravatar.com/avatar/
+- gravatar官方en源 https://en.gravatar.com/avatar/
+- gravatar官方secure源 https://secure.gravatar.com/avatar/
 - V2EX源 https://cdn.v2ex.com/gravatar/
 - Loli源 https://gravatar.loli.net/avatar/
 - 极客族 https://sdn.geekzu.org/avatar/
