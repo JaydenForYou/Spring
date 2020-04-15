@@ -198,9 +198,11 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
               </div>
               <div class="d-flex flex-column align-items-start ml-1 post-card-content-meta-other">
                 <div class="post-card-content-meta-other-date">
+                  <i class="icon far fa-clock"></i>
                   <?= date('Y-m-d', $this->created) ?>
                 </div>
                 <div class="post-card-content-meta-other-readtime">
+                  <i class="icon far fa-bookmark"></i>
                   <?= getRate($this->text); ?>分钟阅读
                 </div>
               </div>
