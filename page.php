@@ -5,9 +5,6 @@
        style="background-image: url('<?= $this->fields->thumbnail ?>')"></div>
   <div class="d-flex flex-column align-content-center justify-content-center main-hero-content">
     <div class="text-center main-hero-content-title"><?= $this->title; ?></div>
-    <div class="text-center main-hero-content-description"><?php $this->author(); ?>
-      / <?= date('Y-m-d', $this->created) ?></div>
-  </div>
     <div class="main-hero-waves-area waves-area">
       <svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
            viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
