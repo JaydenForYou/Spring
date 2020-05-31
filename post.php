@@ -97,7 +97,7 @@
         <strong>文章作者： </strong>
         <?php $this->author(); ?>
       </li>
-      <li class="post-copyright-link aline">
+      <li class="post-copyright-link" style="word-wrap:break-word; word-break:break-all;">
         <strong>文章链接：</strong>
         <a href="<?= $this->permalink; ?>" title="<?= $this->title; ?>"><?= $this->permalink; ?></a>
       </li>
