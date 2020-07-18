@@ -44,9 +44,9 @@ $this->need('header.php');
           <p>
             <span class="purple">const</span> aboutMe <span class="cyan">=</span> {
             <br />
-            <span class="space red">name</span><span class="cyan">:</span> <span class="green">'Carlos Lin'</span>,
+            <span class="space red">name</span><span class="cyan">:</span> <span class="green">'Leslie Lin'</span>,
             <br/>
-            <span class="space red">email</span><span class="cyan">:</span> <span class="green">'i@iobiji.com</span>',
+            <span class="space red">email</span><span class="cyan">:</span> <span class="green">'i@iobiji.com'</span>,
             <br/>
             <span class="space red">position</span><span class="cyan">:</span> <span class="green">'Web Front-End Developer'</span>,
             <br/>

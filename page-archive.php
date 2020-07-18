@@ -36,7 +36,7 @@ $this->need('header.php');
     <div class="container-sm">
       <div class="row post-content-main">
         <article
-          class="col-12 col-sm-12 px-0 borderbox post-content article-main custom-archive-template page">
+          class="borderbox post post-content article-main custom-archive-template page post-content-use-blank">
           <div class="archive-page">
             <div class="archive-page-title">截至 <?=date('Y年m月d日')?> 共写了<?php $stat->publishedPostsNum() ?>文章</div>
             <ul class="archive-page-list">

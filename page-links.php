@@ -35,7 +35,7 @@ $this->need('header.php');
   <div class="container-sm">
     <div class="row post-content-main">
       <article
-        class="col-12 col-sm-12 px-0 borderbox post-content article-main custom-links-template page">
+        class="col-12 col-sm-12 px-0 borderbox post-content article-main custom-links-template page post-content-use-blank">
         <?php echo Utils::getContent($this->content) ?>
       </article>
     </div>
