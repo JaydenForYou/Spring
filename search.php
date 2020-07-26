@@ -23,6 +23,7 @@ if ($this->is('index')) {
   if (empty($url)) {
     $url = $_SERVER['REQUEST_URI'];
   }
+  $url = str_replace("index.php", "", $url);
   $page = preg_replace("/\/\d+/u", '', $url);
 }
 $prev = $this->_currentPage - 1;
