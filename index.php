@@ -24,7 +24,7 @@ if ($this->is('index')) {
     $url = $_SERVER['REQUEST_URI'];
   }
   $url = str_replace("index.php", "", $url);
-  $page = preg_replace("/\/\d+/u", '', $url);
+  $page = '/' . preg_replace("/\/\d+/u", '', $url);
 }
 $prev = $this->_currentPage - 1;
 $next = $this->_currentPage + 1;
