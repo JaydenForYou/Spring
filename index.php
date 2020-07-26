@@ -23,6 +23,7 @@ if ($this->is('index')) {
   if (empty($url)) {
     $url = $_SERVER['REQUEST_URI'];
   }
+  $url = str_replace("index.php", "", $url);
   $page = preg_replace("/\/\d+/u", '', $url);
 }
 $prev = $this->_currentPage - 1;
@@ -54,9 +55,9 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
              src="<?= Utils::getGravatar($this->author->mail) ?>" alt="头像"/>
       </div>
       <div class="text-center main-hero-content-title"><?php $this->author(); ?></div>
-      <div class="text-center main-hero-content-description"><?=Utils::getAuthor($this->author->url)['bio']?></div>
+      <div class="text-center main-hero-content-description"><?= Utils::getAuthor($this->author->url)['bio'] ?></div>
       <div class="text-center main-hero-content-description">
-        <i class="fas fa-map-marker-alt"></i> <?=Utils::getAuthor($this->author->url)['location']?>
+        <i class="fas fa-map-marker-alt"></i> <?= Utils::getAuthor($this->author->url)['location'] ?>
         <span class="date-divider"></span>
         <i class="fas fa-poll-h"></i> <?= Utils::getAuthorPosts($this->author->uid) ?> 篇文章
       </div>
@@ -92,7 +93,8 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
           <i class="fab fa-github"></i>
         </a>
         <a class="site-tooltip main-hero-content-social-links" target="_blank" rel="noreferrer noopener nofollow"
-           href="<?=Utils::getAuthor($this->author->url)['site']?>" data-toggle="tooltip" data-placement="bottom" title=""
+           href="<?= Utils::getAuthor($this->author->url)['site'] ?>" data-toggle="tooltip" data-placement="bottom"
+           title=""
            data-original-title="个人地址">
           <i class="fas fa-globe-asia"></i>
         </a>
@@ -107,7 +109,7 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
       <div class="text-center main-hero-content-description">该分类下有<?= Utils::getCnums($this->category) ?>篇文章
       </div>
     <?php elseif ($this->is('index')): ?>
-      <div class="text-center main-hero-content-title"><?=$this->options->ititle?></div>
+      <div class="text-center main-hero-content-title"><?= $this->options->ititle ?></div>
       <div class="text-center main-hero-content-description home-sentence">我最不喜欢做选择，但我选择了，就一定不后悔。</div>
     <?php endif ?>
   </div>
@@ -137,11 +139,12 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
         } ?>">
           <div class="post-card-image">
             <div class="post-card-image-shadow"></div>
-            <a data-ajax href="<?= $this->permalink; ?>" class="post-card-image-link<?php if ($this->sequence % 2 === 0) {
-              echo ' even';
-            } else {
-              echo ' odd';
-            } ?>">
+            <a data-ajax href="<?= $this->permalink; ?>"
+               class="post-card-image-link<?php if ($this->sequence % 2 === 0) {
+                 echo ' even';
+               } else {
+                 echo ' odd';
+               } ?>">
               <div class="post-card-image-link-background"
                    style="background-image: url('<?php
                    if ($this->fields->thumbnail) {
@@ -170,7 +173,8 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
             } else {
               echo 'text-left ';
             } ?>post-card-content-title">
-              <a data-ajax href="<?= $this->permalink; ?>" class="post-card-content-title-link"><?php $this->title(); ?></a>
+              <a data-ajax href="<?= $this->permalink; ?>"
+                 class="post-card-content-title-link"><?php $this->title(); ?></a>
             </h3>
             <p class="mb-3 mb-md-5 <?php if ($this->sequence % 2 === 0) {
               echo 'text-right ';
