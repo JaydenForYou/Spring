@@ -98,6 +98,16 @@ if (!empty($this->options->cdn) && $this->options->cdn) {
   const appId = "<?php $this->options->APPID()?>";
   const appKey = "<?php $this->options->APPKEY()?>";
   const serverUrls = "<?php $this->options->serverURLs()?>";
+  if ($('.next')) {
+    $('.next').attr('class', 'page-link')
+    $('.next').attr('aria-label', '下一页')
+    $('.next').attr('title', '下一页')
+  }
+  if ($('.prev')) {
+    $('.prev').attr('class', 'page-link')
+    $('.prev').attr('aria-label', '上一页')
+    $('.prev').attr('title', '上一页')
+  }
 </script>
 <script type="text/javascript">
   window.Spring = {

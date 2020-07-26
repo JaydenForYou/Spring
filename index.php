@@ -13,21 +13,8 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 $this->need('header.php');
 $hiddens = '';
 $hidden = '';
-$page = '';
-if ($this->is('index')) {
-  $page = "/index.php/page/";
-} elseif ($this->is('author')) {
-  $page = $this->author->permalink;
-} elseif ($this->is('category')) {
-  $url = $_SERVER['PHP_SELF'];
-  if (empty($url)) {
-    $url = $_SERVER['REQUEST_URI'];
-  }
-  $url = str_replace("index.php", "", $url);
-  $page = '/' . preg_replace("/\/\d+/u", '', $url);
-}
-$prev = $this->_currentPage - 1;
-$next = $this->_currentPage + 1;
+$prev = $page . ($this->_currentPage - 1);
+$next = $page . ($this->_currentPage + 1);
 if ($this->_currentPage == 0 || $this->_currentPage == 1) {
   $hidden = 'hidden';
   $cpage = 1;
@@ -222,20 +209,12 @@ if ($this->_currentPage == ceil($this->getTotal() / $this->parameter->pageSize))
         <nav aria-label="文章分页">
           <ul class="mb-0 pagination">
             <li class="page-item" <?php echo $hidden ?>>
-              <a class="page-link" href="<?= $page . $prev ?>" aria-label="上一页">
-          <span aria-hidden="true">
-            <i class="fas fa-angle-left"></i>
-          </span>
-              </a>
+              <?php $this->pageLink('<span aria-hidden="true"><i class="fas fa-angle-left"></i></span>') ?>
             </li>
             <li class="page-item"><a class="page-link">第 <?= $cpage ?>
                 页，共<?php echo ceil($this->getTotal() / $this->parameter->pageSize); ?>页</a></li>
             <li class="page-item" <?php echo $hiddens ?>>
-              <a class="page-link" href="<?= $page . $next ?>" aria-label="下一页">
-          <span aria-hidden="true">
-            <i class="fas fa-angle-right"></i>
-          </span>
-              </a>
+              <?php $this->pageLink('<span aria-hidden="true"><i class="fas fa-angle-right"></i></span>','next')?>
             </li>
           </ul>
         </nav>
