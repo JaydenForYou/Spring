@@ -1,7 +1,7 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 <?php
 /**
- * 文章全款模板
+ * 文章全宽模板
  *
  * @package custom
  * @author 林尽欢
