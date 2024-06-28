@@ -384,7 +384,7 @@ function themeConfig($form)
     array(
       'enableComments' => '开启主题自带评论系统'
     ),
-    null,
+    [],
     '开关设置'
   );
   $form->addInput($JConfig->multiMode());
